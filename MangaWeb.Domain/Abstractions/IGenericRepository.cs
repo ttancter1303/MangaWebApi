@@ -1,6 +1,6 @@
 ﻿using System.Linq.Expressions;
 
-namespace DemoApp.Domain.Abstractions
+namespace MangaWeb.Domain.Abstractions
 {
     public interface IGenericRepository<TEntity, TKey> where TEntity : class
     {

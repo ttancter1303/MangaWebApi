@@ -1,4 +1,4 @@
-﻿namespace DemoApp.Domain.Abstractions
+﻿namespace MangaWeb.Domain.Abstractions
 {
     public interface IUnitOfWork : IDisposable
     {

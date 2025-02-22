@@ -1,0 +1,6 @@
+D:\MangaWebApi\MangaWeb\MangaWeb.Domain\obj\Debug\net6.0\MangaWeb.Domain.csproj.AssemblyReference.cache
+D:\MangaWebApi\MangaWeb\MangaWeb.Domain\obj\Debug\net6.0\MangaWeb.Domain.GeneratedMSBuildEditorConfig.editorconfig
+D:\MangaWebApi\MangaWeb\MangaWeb.Domain\obj\Debug\net6.0\MangaWeb.Domain.AssemblyInfoInputs.cache
+D:\MangaWebApi\MangaWeb\MangaWeb.Domain\obj\Debug\net6.0\MangaWeb.Domain.AssemblyInfo.cs
+D:\MangaWebApi\MangaWeb\MangaWeb.Domain\obj\Debug\net6.0\MangaWeb.Domain.csproj.CoreCompileInputs.cache
+D:\MangaWebApi\MangaWeb\MangaWeb.Domain\obj\Debug\net6.0\MangaWeb.Domain.sourcelink.json

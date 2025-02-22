@@ -1,6 +1,6 @@
-﻿using DemoApp.Domain.Enums;
+﻿using MangaWeb.Domain.Enums;
 
-namespace DemoApp.Domain.Abstractions
+namespace MangaWeb.Domain.Abstractions
 {
     internal interface IAuditTable
     {
