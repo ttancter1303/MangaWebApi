@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "P8hixZt6sSUERbtmQ4jUHYub6pMdBN7AGzDKdbv/7CQ=",
+  "Source": "MangaWeb.Api",
+  "BasePath": "_content/MangaWeb.Api",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

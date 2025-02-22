@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\MangaWeb.Api.props" />
+</Project>
