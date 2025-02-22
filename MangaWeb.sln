@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.35013.160
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MangaWeb.Api", "MangaWeb\MangaWeb.Api.csproj", "{403B0B42-16B1-4FE0-BB39-9F739F7591CB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MangaWeb.Application", "MangaWeb.Application\MangaWeb.Application.csproj", "{9AB04D90-3400-4E31-ABAD-475EADADBFC3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MangaWeb.Domain", "MangaWeb.Domain\MangaWeb.Domain.csproj", "{93E80D2C-F428-4303-A6C1-32007854F64E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MangaWeb.Infrastructure", "MangaWeb.Infrastructure\MangaWeb.Infrastructure.csproj", "{F78663D6-9F20-4162-832C-8635FC846731}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MangaWeb.Persistence", "MangaWeb.Persistence\MangaWeb.Persistence.csproj", "{056B5F82-099B-4A72-A545-4BA09A089FA9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{403B0B42-16B1-4FE0-BB39-9F739F7591CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{403B0B42-16B1-4FE0-BB39-9F739F7591CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{403B0B42-16B1-4FE0-BB39-9F739F7591CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{403B0B42-16B1-4FE0-BB39-9F739F7591CB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9AB04D90-3400-4E31-ABAD-475EADADBFC3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9AB04D90-3400-4E31-ABAD-475EADADBFC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9AB04D90-3400-4E31-ABAD-475EADADBFC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9AB04D90-3400-4E31-ABAD-475EADADBFC3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{93E80D2C-F428-4303-A6C1-32007854F64E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{93E80D2C-F428-4303-A6C1-32007854F64E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{93E80D2C-F428-4303-A6C1-32007854F64E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{93E80D2C-F428-4303-A6C1-32007854F64E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F78663D6-9F20-4162-832C-8635FC846731}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F78663D6-9F20-4162-832C-8635FC846731}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F78663D6-9F20-4162-832C-8635FC846731}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F78663D6-9F20-4162-832C-8635FC846731}.Release|Any CPU.Build.0 = Release|Any CPU
+		{056B5F82-099B-4A72-A545-4BA09A089FA9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{056B5F82-099B-4A72-A545-4BA09A089FA9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{056B5F82-099B-4A72-A545-4BA09A089FA9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{056B5F82-099B-4A72-A545-4BA09A089FA9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1588DE85-E516-4126-99B5-6D0FE34A502E}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "//1ibPSXnp4=",
+  "success": true,
+  "projectFilePath": "D:\\MangaWebApi\\MangaWeb\\MangaWeb.Application\\MangaWeb.Application.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\01689\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.32\\microsoft.windowsdesktop.app.ref.6.0.32.nupkg.sha512",
+    "C:\\Users\\01689\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.32\\microsoft.netcore.app.ref.6.0.32.nupkg.sha512",
+    "C:\\Users\\01689\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.32\\microsoft.aspnetcore.app.ref.6.0.32.nupkg.sha512"
+  ],
+  "logs": []
+}
