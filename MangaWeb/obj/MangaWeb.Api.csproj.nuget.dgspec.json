@@ -89,14 +89,14 @@
         }
       }
     },
-    "D:\\MangaWebApi\\MangaWeb\\MangaWeb.Api.csproj": {
+    "D:\\MangaWebApi\\MangaWeb.Persistence\\MangaWeb.Persistence.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\MangaWebApi\\MangaWeb\\MangaWeb.Api.csproj",
-        "projectName": "MangaWeb.Api",
-        "projectPath": "D:\\MangaWebApi\\MangaWeb\\MangaWeb.Api.csproj",
+        "projectUniqueName": "D:\\MangaWebApi\\MangaWeb.Persistence\\MangaWeb.Persistence.csproj",
+        "projectName": "MangaWeb.Persistence",
+        "projectPath": "D:\\MangaWebApi\\MangaWeb.Persistence\\MangaWeb.Persistence.csproj",
         "packagesPath": "C:\\Users\\01689\\.nuget\\packages\\",
-        "outputPath": "D:\\MangaWebApi\\MangaWeb\\obj\\",
+        "outputPath": "D:\\MangaWebApi\\MangaWeb.Persistence\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\01689\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -134,7 +134,93 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[6.0.32, 6.0.32]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[6.0.32, 6.0.32]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[6.0.32, 6.0.32]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\MangaWebApi\\MangaWeb\\MangaWeb.Api.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\MangaWebApi\\MangaWeb\\MangaWeb.Api.csproj",
+        "projectName": "MangaWeb.Api",
+        "projectPath": "D:\\MangaWebApi\\MangaWeb\\MangaWeb.Api.csproj",
+        "packagesPath": "C:\\Users\\01689\\.nuget\\packages\\",
+        "outputPath": "D:\\MangaWebApi\\MangaWeb\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\01689\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "D:\\MangaWebApi\\MangaWeb.Domain\\MangaWeb.Domain.csproj": {
+                "projectPath": "D:\\MangaWebApi\\MangaWeb.Domain\\MangaWeb.Domain.csproj"
+              },
+              "D:\\MangaWebApi\\MangaWeb.Persistence\\MangaWeb.Persistence.csproj": {
+                "projectPath": "D:\\MangaWebApi\\MangaWeb.Persistence\\MangaWeb.Persistence.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
           "dependencies": {
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[7.0.15, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.5.0, )"

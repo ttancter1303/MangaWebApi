@@ -1,6 +1,7 @@
-﻿using MangaWeb.Domain.Entities;
-using MangaWeb.Domain.Abstractions;
+﻿using MangaWeb.Domain.Abstractions;
 using MangaWeb.Domain.Enums;
+using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MangaWeb.Domain.Entities
@@ -25,6 +26,8 @@ namespace MangaWeb.Domain.Entities
         public ICollection<Chapter> Chapters { get; set; } = new List<Chapter>();
 
         public ICollection<Tag> Tags { get; set; } = new List<Tag>();
+
+        public ICollection<ReviewManga> ReviewMangas { get; set; } = new List<ReviewManga>();
 
         public DateTime? CreatedDate { get; set; }
         public Guid? CreatedBy { get; set; }
