@@ -7,11 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.15" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\MangaWeb.Domain\MangaWeb.Domain.csproj" />
+    <ProjectReference Include="..\MangaWeb.Persistence\MangaWeb.Persistence.csproj" />
   </ItemGroup>
 
 </Project>
