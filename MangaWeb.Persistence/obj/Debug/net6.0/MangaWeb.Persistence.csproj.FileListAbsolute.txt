@@ -1,0 +1,16 @@
+E:\CeeSuck\MangaWebApi\MangaWeb.Persistence\bin\Debug\net6.0\MangaWeb.Persistence.deps.json
+E:\CeeSuck\MangaWebApi\MangaWeb.Persistence\bin\Debug\net6.0\MangaWeb.Persistence.dll
+E:\CeeSuck\MangaWebApi\MangaWeb.Persistence\bin\Debug\net6.0\MangaWeb.Persistence.pdb
+E:\CeeSuck\MangaWebApi\MangaWeb.Persistence\bin\Debug\net6.0\MangaWeb.Domain.dll
+E:\CeeSuck\MangaWebApi\MangaWeb.Persistence\bin\Debug\net6.0\MangaWeb.Domain.pdb
+E:\CeeSuck\MangaWebApi\MangaWeb.Persistence\obj\Debug\net6.0\MangaWeb.Persistence.csproj.AssemblyReference.cache
+E:\CeeSuck\MangaWebApi\MangaWeb.Persistence\obj\Debug\net6.0\MangaWeb.Persistence.GeneratedMSBuildEditorConfig.editorconfig
+E:\CeeSuck\MangaWebApi\MangaWeb.Persistence\obj\Debug\net6.0\MangaWeb.Persistence.AssemblyInfoInputs.cache
+E:\CeeSuck\MangaWebApi\MangaWeb.Persistence\obj\Debug\net6.0\MangaWeb.Persistence.AssemblyInfo.cs
+E:\CeeSuck\MangaWebApi\MangaWeb.Persistence\obj\Debug\net6.0\MangaWeb.Persistence.csproj.CoreCompileInputs.cache
+E:\CeeSuck\MangaWebApi\MangaWeb.Persistence\obj\Debug\net6.0\MangaWeb.Persistence.sourcelink.json
+E:\CeeSuck\MangaWebApi\MangaWeb.Persistence\obj\Debug\net6.0\MangaWeb.8208D8F8.Up2Date
+E:\CeeSuck\MangaWebApi\MangaWeb.Persistence\obj\Debug\net6.0\MangaWeb.Persistence.dll
+E:\CeeSuck\MangaWebApi\MangaWeb.Persistence\obj\Debug\net6.0\refint\MangaWeb.Persistence.dll
+E:\CeeSuck\MangaWebApi\MangaWeb.Persistence\obj\Debug\net6.0\MangaWeb.Persistence.pdb
+E:\CeeSuck\MangaWebApi\MangaWeb.Persistence\obj\Debug\net6.0\ref\MangaWeb.Persistence.dll

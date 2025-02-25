@@ -10,5 +10,8 @@
     <ProjectReference Include="..\MangaWeb.Domain\MangaWeb.Domain.csproj" />
     <ProjectReference Include="..\MangaWeb.Persistence\MangaWeb.Persistence.csproj" />
   </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.25" />
 
+	</ItemGroup>
 </Project>

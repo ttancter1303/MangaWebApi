@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\MangaWebApi\\MangaWeb.Domain\\MangaWeb.Domain.csproj": {}
+    "E:\\CeeSuck\\MangaWebApi\\MangaWeb.Domain\\MangaWeb.Domain.csproj": {}
   },
   "projects": {
-    "D:\\MangaWebApi\\MangaWeb.Domain\\MangaWeb.Domain.csproj": {
+    "E:\\CeeSuck\\MangaWebApi\\MangaWeb.Domain\\MangaWeb.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\MangaWebApi\\MangaWeb.Domain\\MangaWeb.Domain.csproj",
+        "projectUniqueName": "E:\\CeeSuck\\MangaWebApi\\MangaWeb.Domain\\MangaWeb.Domain.csproj",
         "projectName": "MangaWeb.Domain",
-        "projectPath": "D:\\MangaWebApi\\MangaWeb.Domain\\MangaWeb.Domain.csproj",
+        "projectPath": "E:\\CeeSuck\\MangaWebApi\\MangaWeb.Domain\\MangaWeb.Domain.csproj",
         "packagesPath": "C:\\Users\\01689\\.nuget\\packages\\",
-        "outputPath": "D:\\MangaWebApi\\MangaWeb.Domain\\obj\\",
+        "outputPath": "E:\\CeeSuck\\MangaWebApi\\MangaWeb.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\01689\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -69,15 +69,15 @@
           "downloadDependencies": [
             {
               "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[6.0.32, 6.0.32]"
+              "version": "[6.0.33, 6.0.33]"
             },
             {
               "name": "Microsoft.NETCore.App.Ref",
-              "version": "[6.0.32, 6.0.32]"
+              "version": "[6.0.33, 6.0.33]"
             },
             {
               "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[6.0.32, 6.0.32]"
+              "version": "[6.0.33, 6.0.33]"
             }
           ],
           "frameworkReferences": {
@@ -85,7 +85,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }

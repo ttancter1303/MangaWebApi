@@ -5,7 +5,11 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
-
+	<ItemGroup>
+		<PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="6.0.25" />
+		<PackageReference Include="Microsoft.Extensions.Caching.StackExchangeRedis" Version="6.0.25" />
+		<PackageReference Include="Serilog" Version="3.1.1" />
+	</ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MangaWeb.Application\MangaWeb.Application.csproj" />
     <ProjectReference Include="..\MangaWeb.Domain\MangaWeb.Domain.csproj" />
