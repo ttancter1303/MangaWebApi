@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 
-namespace DemoApp.Domain.Exceptions;
+namespace MangaWeb.Domain.Exceptions;
 
 public static class UserException
 {
