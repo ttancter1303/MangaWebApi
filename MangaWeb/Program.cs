@@ -23,7 +23,6 @@ builder.Services.AddIdentity<AppUser, AppRole>(options =>
 .AddEntityFrameworkStores<ApplicationDbContext>()
 .AddDefaultTokenProviders();
 
-// Đăng ký các dịch vụ khác
 // builder.Services.AddScoped<IViewService, ViewService>();
 // builder.Services.AddScoped<IReviewService, ReviewService>();
 // builder.Services.AddScoped<IImageService, ImageService>();
