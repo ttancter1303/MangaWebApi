@@ -1,50 +1,68 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using MangaWeb.Application.Services;
+using MangaWeb.Domain.Models.Chapters;
 using Microsoft.AspNetCore.Mvc;
-using MangaWeb.Domain.Entities;
-using MangaWeb.Domain.Utility;
 using System;
-using System.Collections.Generic;
+using System.Threading.Tasks;
 
-namespace MangaWeb.Api.Controllers
+namespace MangaWeb.API.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
     public class ChaptersController : ControllerBase
     {
-        [Authorize(Policy = CommonConstants.Permissions.VIEW_CHAPTER_PERMISSION)]
-        [HttpGet("{mangaId}")]
-        public IActionResult GetChapters(Guid mangaId)
+        private readonly IChapterService _chapterService;
+
+        public ChaptersController(IChapterService chapterService)
         {
-            // Logic để lấy danh sách chương truyện theo mangaId
-            var chapters = new List<Chapter>
-            {
-                new Chapter { Id = Guid.NewGuid(), Title = "Chapter 1", MangaId = mangaId },
-                new Chapter { Id = Guid.NewGuid(), Title = "Chapter 2", MangaId = mangaId }
-            };
+            _chapterService = chapterService;
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetAllChapters()
+        {
+            var chapters = await _chapterService.GetAllChaptersAsync();
             return Ok(chapters);
         }
 
-        [Authorize(Policy = CommonConstants.Permissions.ADD_CHAPTER_PERMISSION)]
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetChapterById(Guid id)
+        {
+            var chapter = await _chapterService.GetChapterByIdAsync(id);
+            if (chapter == null)
+            {
+                return NotFound();
+            }
+            return Ok(chapter);
+        }
+
         [HttpPost]
-        public IActionResult AddChapter([FromBody] Chapter chapter)
+        public async Task<IActionResult> CreateChapter([FromBody] ChapterCreateViewModel model)
         {
-            // Logic để thêm chương truyện
-            return Ok(chapter);
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            var chapterId = await _chapterService.CreateChapterAsync(model);
+            return CreatedAtAction(nameof(GetChapterById), new { id = chapterId }, model);
         }
 
-        [Authorize(Policy = CommonConstants.Permissions.UPDATE_CHAPTER_PERMISSION)]
         [HttpPut("{id}")]
-        public IActionResult UpdateChapter(Guid id, [FromBody] Chapter chapter)
+        public async Task<IActionResult> UpdateChapter(Guid id, [FromBody] ChapterUpdateViewModel model)
         {
-            // Logic để cập nhật chương truyện
-            return Ok(chapter);
+            if (!ModelState.IsValid || id != model.Id)
+            {
+                return BadRequest(ModelState);
+            }
+
+            await _chapterService.UpdateChapterAsync(model);
+            return NoContent();
         }
 
-        [Authorize(Policy = CommonConstants.Permissions.DELETE_CHAPTER_PERMISSION)]
         [HttpDelete("{id}")]
-        public IActionResult DeleteChapter(Guid id)
+        public async Task<IActionResult> DeleteChapter(Guid id)
         {
-            // Logic để xóa chương truyện
+            await _chapterService.DeleteChapterAsync(id);
             return NoContent();
         }
     }
