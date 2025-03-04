@@ -94,3 +94,14 @@ E:\CeeSuck\MangaWebApi\MangaWeb\bin\Debug\net6.0\Serilog.dll
 E:\CeeSuck\MangaWebApi\MangaWeb\bin\Debug\net6.0\StackExchange.Redis.dll
 E:\CeeSuck\MangaWebApi\MangaWeb\bin\Debug\net6.0\System.Diagnostics.PerformanceCounter.dll
 E:\CeeSuck\MangaWebApi\MangaWeb\bin\Debug\net6.0\runtimes\win\lib\netcoreapp2.0\System.Diagnostics.PerformanceCounter.dll
+D:\MangaWebApi\MangaWeb\obj\Debug\net6.0\MangaWeb.Api.csproj.AssemblyReference.cache
+D:\MangaWebApi\MangaWeb\obj\Debug\net6.0\MangaWeb.Api.GeneratedMSBuildEditorConfig.editorconfig
+D:\MangaWebApi\MangaWeb\obj\Debug\net6.0\MangaWeb.Api.AssemblyInfoInputs.cache
+D:\MangaWebApi\MangaWeb\obj\Debug\net6.0\MangaWeb.Api.AssemblyInfo.cs
+D:\MangaWebApi\MangaWeb\obj\Debug\net6.0\MangaWeb.Api.csproj.CoreCompileInputs.cache
+D:\MangaWebApi\MangaWeb\obj\Debug\net6.0\MangaWeb.Api.MvcApplicationPartsAssemblyInfo.cs
+D:\MangaWebApi\MangaWeb\obj\Debug\net6.0\MangaWeb.Api.MvcApplicationPartsAssemblyInfo.cache
+D:\MangaWebApi\MangaWeb\obj\Debug\net6.0\MangaWeb.Api.sourcelink.json
+D:\MangaWebApi\MangaWeb\obj\Debug\net6.0\MangaWeb.Api.dll
+D:\MangaWebApi\MangaWeb\obj\Debug\net6.0\refint\MangaWeb.Api.dll
+D:\MangaWebApi\MangaWeb\obj\Debug\net6.0\MangaWeb.Api.pdb

@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using MangaWeb.Domain.Enums;
 
 namespace MangaWeb.Domain.Models.Chapters
@@ -10,7 +9,12 @@ namespace MangaWeb.Domain.Models.Chapters
         public string Title { get; set; }
         public int ChapterNumber { get; set; }
         public Guid MangaId { get; set; }
-        public List<string> ChapterImages { get; set; } // URLs or paths to images
+        public string[] Images { get; set; }
+        public int PageCount { get; set; }
+        public string StorageLocation { get; set; }
+        public long TotalSize { get; set; }
+        public DateTime? CreatedDate { get; set; }
+        public Guid? CreatedBy { get; set; }
         public EntityStatus Status { get; set; }
     }
 }

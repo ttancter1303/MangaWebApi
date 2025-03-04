@@ -27,11 +27,26 @@ public class ApplicationDbContext : IdentityDbContext<AppUser, AppRole, Guid>
             .WithMany(m => m.Chapters)
             .HasForeignKey(c => c.MangaId);
 
-        // Cấu hình quan hệ một-nhiều giữa Chapter và ChapterImage
-        modelBuilder.Entity<ChapterImage>()
-            .HasOne(ci => ci.Chapter)
-            .WithMany(c => c.ChapterImages)
-            .HasForeignKey(ci => ci.ChapterId);
+        // Cấu hình cho Chapter
+        modelBuilder.Entity<Chapter>(entity =>
+        {
+            entity.Property(e => e.Title)
+                .IsRequired()
+                .HasColumnType("nvarchar(1000)");
+
+            entity.Property(e => e.ImagePaths)
+                .IsRequired()
+                .HasColumnType("nvarchar(max)");
+
+            entity.Property(e => e.StorageLocation)
+                .HasColumnType("nvarchar(255)");
+
+            entity.Property(e => e.TotalSize)
+                .IsRequired();
+
+            entity.Property(e => e.PageCount)
+                .IsRequired();
+        });
 
         // Cấu hình quan hệ một-nhiều giữa Manga và ReviewManga
         modelBuilder.Entity<ReviewManga>()
@@ -63,7 +78,6 @@ public class ApplicationDbContext : IdentityDbContext<AppUser, AppRole, Guid>
     // Các DbSet cho các entity
     public DbSet<Manga> Mangas { get; set; }
     public DbSet<Chapter> Chapters { get; set; }
-    public DbSet<ChapterImage> ChapterImages { get; set; }
     public DbSet<Author> Authors { get; set; }
     public DbSet<Tag> Tags { get; set; }
     public DbSet<ReviewManga> ReviewMangas { get; set; }

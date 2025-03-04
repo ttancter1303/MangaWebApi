@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace MangaWeb.Application.Services
+namespace MangaWeb.Domain.Interfaces
 {
     public interface ITagService
     {
