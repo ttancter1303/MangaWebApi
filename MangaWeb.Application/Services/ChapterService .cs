@@ -1,30 +1,27 @@
 ﻿using AutoMapper;
 using MangaWeb.Domain.Entities;
-
+using MangaWeb.Domain.Exceptions; // Import các exception
 using MangaWeb.Domain.Models.Chapters;
-using MangaWeb.Domain.Exceptions;
-using MangaWeb.Domain.Interfaces;
+using MangaWeb.Domain.Abstractions.ApplicationServices;
 using MangaWeb.Domain.Abstractions;
+using MangaWeb.Domain.Enums;
+
 
 namespace MangaWeb.Application.Services
 {
     public class ChapterService : IChapterService
     {
         private readonly IChapterRepository _chapterRepository;
-        private readonly IStorageService _storageService;
-        private readonly IMapper _mapper;
         private readonly IUnitOfWork _unitOfWork;
+        private readonly IMapper _mapper;
+        private readonly IStorageService _storageService; // Thêm IStorageService
 
-        public ChapterService(
-            IChapterRepository chapterRepository,
-            IStorageService storageService,
-            IMapper mapper,
-            IUnitOfWork unitOfWork)
+        public ChapterService(IChapterRepository chapterRepository, IUnitOfWork unitOfWork, IMapper mapper, IStorageService storageService)
         {
             _chapterRepository = chapterRepository;
-            _storageService = storageService;
-            _mapper = mapper;
             _unitOfWork = unitOfWork;
+            _mapper = mapper;
+            _storageService = storageService; // Khởi tạo IStorageService
         }
 
         public async Task<IEnumerable<ChapterViewModel>> GetAllChaptersAsync()
@@ -37,8 +34,9 @@ namespace MangaWeb.Application.Services
         {
             var chapter = await _chapterRepository.GetByIdWithDetailsAsync(id);
             if (chapter == null)
-                throw new NotFoundException($"Không tìm thấy chapter với id: {id}");
-
+            {
+                throw new ChapterNotFoundException(id.GetHashCode()); 
+            }
             return _mapper.Map<ChapterDetailViewModel>(chapter);
         }
 
@@ -50,147 +48,79 @@ namespace MangaWeb.Application.Services
 
         public async Task<ChapterViewModel> CreateChapterAsync(CreateChapterRequest request)
         {
-            await using var transaction = await _unitOfWork.BeginTransactionAsync();
-            try
-            {
-                // Upload images
-                var folderPath = $"chapters/{request.MangaId}/{request.ChapterNumber}";
-                var imagePaths = await _storageService.UploadFilesAsync(request.Images, folderPath);
+            var chapter = _mapper.Map<Chapter>(request);
+            chapter.Id = Guid.NewGuid();
+            chapter.CreatedDate = DateTime.UtcNow;
+            chapter.Status = EntityStatus.Active;
 
-                var chapter = new Chapter
-                {
-                    Id = Guid.NewGuid(),
-                    Title = request.Title,
-                    ChapterNumber = request.ChapterNumber,
-                    MangaId = request.MangaId,
-                    Images = imagePaths.ToArray(),
-                    PageCount = imagePaths.Count,
-                    StorageLocation = _storageService.StorageLocation,
-                    TotalSize = request.Images.Sum(f => f.Length),
-                    CreatedDate = DateTime.UtcNow,
-                    Status = Domain.Enums.EntityStatus.Active
-                };
+            // Upload images using IStorageService
+            var imagePaths = await _storageService.UploadFilesAsync(request.Images, $"chapters/{chapter.MangaId}/{chapter.ChapterNumber}");
+            chapter.Images = imagePaths.ToArray();
 
-                await _chapterRepository.AddAsync(chapter);
-                await _unitOfWork.SaveChangesAsync();
-                await _unitOfWork.CommitTransactionAsync();
+            await _chapterRepository.AddAsync(chapter);
+            await _unitOfWork.SaveChangesAsync();
 
-                return _mapper.Map<ChapterViewModel>(chapter);
-            }
-            catch
-            {
-                await _unitOfWork.RollbackTransactionAsync();
-                throw;
-            }
+            return _mapper.Map<ChapterViewModel>(chapter);
         }
 
         public async Task<ChapterViewModel> UpdateChapterAsync(UpdateChapterRequest request)
         {
             var chapter = await _chapterRepository.GetByIdAsync(request.Id);
             if (chapter == null)
-                throw new NotFoundException($"Không tìm thấy chapter với id: {request.Id}");
-
-            await using var transaction = await _unitOfWork.BeginTransactionAsync();
-            try
             {
-                var currentImages = chapter.Images.ToList();
-
-                // Remove images if specified
-                if (request.RemoveImagePaths?.Any() == true)
-                {
-                    foreach (var path in request.RemoveImagePaths)
-                    {
-                        currentImages.Remove(path);
-                        await _storageService.DeleteFileAsync(path);
-                    }
-                }
-
-                // Upload new images if any
-                if (request.NewImages?.Any() == true)
-                {
-                    var folderPath = $"chapters/{chapter.MangaId}/{request.ChapterNumber}";
-                    var newImagePaths = await _storageService.UploadFilesAsync(request.NewImages, folderPath);
-                    currentImages.AddRange(newImagePaths);
-                }
-
-                // Update chapter
-                chapter.Title = request.Title;
-                chapter.ChapterNumber = request.ChapterNumber;
-                chapter.Images = currentImages.ToArray();
-                chapter.PageCount = currentImages.Count;
-                chapter.UpdatedDate = DateTime.UtcNow;
-
-                // Reorder images if specified
-                if (request.ReorderImages?.Any() == true)
-                {
-                    var orderedImages = new string[currentImages.Count];
-                    foreach (var reorder in request.ReorderImages)
-                    {
-                        if (reorder.Key < currentImages.Count && reorder.Value < currentImages.Count)
-                        {
-                            orderedImages[reorder.Value] = currentImages[reorder.Key];
-                        }
-                    }
-                    chapter.Images = orderedImages.Where(x => x != null).ToArray();
-                }
-
-                await _chapterRepository.UpdateAsync(chapter);
-                await _unitOfWork.SaveChangesAsync();
-                await _unitOfWork.CommitTransactionAsync();
-
-                return _mapper.Map<ChapterViewModel>(chapter);
+                throw new ChapterNotFoundException(request.Id.GetHashCode()); // Sử dụng ChapterNotFoundException
             }
-            catch
-            {
-                await _unitOfWork.RollbackTransactionAsync();
-                throw;
-            }
+
+            _mapper.Map(request, chapter);
+            chapter.UpdatedDate = DateTime.UtcNow;
+
+            await _chapterRepository.UpdateAsync(chapter);
+            await _unitOfWork.SaveChangesAsync();
+
+            return _mapper.Map<ChapterViewModel>(chapter);
         }
 
         public async Task DeleteChapterAsync(Guid id)
         {
             var chapter = await _chapterRepository.GetByIdAsync(id);
             if (chapter == null)
-                throw new NotFoundException($"Không tìm thấy chapter với id: {id}");
-
-            await using var transaction = await _unitOfWork.BeginTransactionAsync();
-            try
             {
-                // Delete images from storage
-                foreach (var imagePath in chapter.Images)
-                {
-                    await _storageService.DeleteFileAsync(imagePath);
-                }
+                throw new ChapterNotFoundException(id.GetHashCode()); // Sử dụng ChapterNotFoundException
+            }
 
-                await _chapterRepository.DeleteAsync(chapter);
-                await _unitOfWork.SaveChangesAsync();
-                await _unitOfWork.CommitTransactionAsync();
-            }
-            catch
-            {
-                await _unitOfWork.RollbackTransactionAsync();
-                throw;
-            }
+            await _chapterRepository.DeleteAsync(chapter);
+            await _unitOfWork.SaveChangesAsync();
         }
 
         public async Task<bool> ReorderChapterImagesAsync(Guid chapterId, Dictionary<int, int> reorderMap)
         {
             var chapter = await _chapterRepository.GetByIdAsync(chapterId);
             if (chapter == null)
-                throw new NotFoundException($"Không tìm thấy chapter với id: {chapterId}");
+            {
+                throw new ChapterNotFoundException(chapterId.GetHashCode()); // Sử dụng ChapterNotFoundException
+            }
 
             var currentImages = chapter.Images.ToList();
             var orderedImages = new string[currentImages.Count];
 
+            // Sắp xếp lại hình ảnh dựa trên reorderMap
             foreach (var reorder in reorderMap)
             {
-                if (reorder.Key < currentImages.Count && reorder.Value < currentImages.Count)
+                // Kiểm tra chỉ số hợp lệ
+                if (reorder.Key < currentImages.Count && reorder.Value < orderedImages.Length)
                 {
                     orderedImages[reorder.Value] = currentImages[reorder.Key];
                 }
+                else
+                {
+                    throw new InvalidOperationException($"Chỉ số không hợp lệ trong bản đồ sắp xếp: Key = {reorder.Key}, Value = {reorder.Value}"); // Sử dụng InvalidOperationException
+                }
             }
 
+            // Lọc các hình ảnh không null và cập nhật lại
             chapter.Images = orderedImages.Where(x => x != null).ToArray();
+
+            // Cập nhật chapter trong repository
             await _chapterRepository.UpdateAsync(chapter);
             await _unitOfWork.SaveChangesAsync();
 

@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Http;
 
-namespace MangaWeb.Domain.Interfaces
+namespace MangaWeb.Domain.Abstractions.ApplicationServices
 {
     public interface IStorageService
     {

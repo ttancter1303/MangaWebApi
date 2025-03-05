@@ -1,4 +1,5 @@
-﻿using MangaWeb.Application.Services;
+﻿using MangaWeb.Domain.Abstractions.ApplicationServices;
+using MangaWeb.Application.Services;
 using MangaWeb.Domain.Models.Chapters;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -36,7 +37,7 @@ namespace MangaWeb.API.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateChapter([FromBody] ChapterCreateViewModel model)
+        public async Task<IActionResult> CreateChapter([FromBody] CreateChapterRequest model)
         {
             if (!ModelState.IsValid)
             {
@@ -48,7 +49,7 @@ namespace MangaWeb.API.Controllers
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateChapter(Guid id, [FromBody] ChapterUpdateViewModel model)
+        public async Task<IActionResult> UpdateChapter(Guid id, [FromBody] UpdateChapterRequest model)
         {
             if (!ModelState.IsValid || id != model.Id)
             {

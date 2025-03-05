@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace MangaWeb.Application.Interfaces
+namespace MangaWeb.Domain.Abstractions.ApplicationServices
 {
     public interface IMangaService
     {

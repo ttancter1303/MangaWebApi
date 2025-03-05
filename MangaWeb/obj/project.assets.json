@@ -2,6 +2,35 @@
   "version": 3,
   "targets": {
     "net6.0": {
+      "AutoMapper/12.0.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.CSharp": "4.7.0"
+        },
+        "compile": {
+          "lib/netstandard2.1/AutoMapper.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.1/AutoMapper.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "AutoMapper.Extensions.Microsoft.DependencyInjection/12.0.1": {
+        "type": "package",
+        "dependencies": {
+          "AutoMapper": "[12.0.1]",
+          "Microsoft.Extensions.Options": "6.0.0"
+        },
+        "compile": {
+          "lib/netstandard2.1/AutoMapper.Extensions.Microsoft.DependencyInjection.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.1/AutoMapper.Extensions.Microsoft.DependencyInjection.dll": {}
+        }
+      },
       "Humanizer.Core/2.8.26": {
         "type": "package",
         "compile": {
@@ -2056,6 +2085,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
+          "AutoMapper.Extensions.Microsoft.DependencyInjection": "12.0.1",
           "MangaWeb.Domain": "1.0.0",
           "MangaWeb.Persistence": "1.0.0",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "6.0.25"
@@ -2116,6 +2146,35 @@
     }
   },
   "libraries": {
+    "AutoMapper/12.0.1": {
+      "sha512": "hvV62vl6Hp/WfQ24yzo3Co9+OPl8wH8hApwVtgWpiAynVJkUcs7xvehnSftawL8Pe8FrPffBRM3hwzLQqWDNjA==",
+      "type": "package",
+      "path": "automapper/12.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "automapper.12.0.1.nupkg.sha512",
+        "automapper.nuspec",
+        "icon.png",
+        "lib/netstandard2.1/AutoMapper.dll",
+        "lib/netstandard2.1/AutoMapper.xml"
+      ]
+    },
+    "AutoMapper.Extensions.Microsoft.DependencyInjection/12.0.1": {
+      "sha512": "+g/K+Vpe3gGMKGzjslMOdqNlkikScDjWfVvmWTayrDHaG/n2pPmFBMa+jKX1r/h6BDGFdkyRjAuhFE3ykW+r1g==",
+      "type": "package",
+      "path": "automapper.extensions.microsoft.dependencyinjection/12.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",
+        "automapper.extensions.microsoft.dependencyinjection.nuspec",
+        "icon.png",
+        "lib/netstandard2.1/AutoMapper.Extensions.Microsoft.DependencyInjection.dll"
+      ]
+    },
     "Humanizer.Core/2.8.26": {
       "sha512": "OiKusGL20vby4uDEswj2IgkdchC1yQ6rwbIkZDVBPIR6al2b7n3pC91elBul9q33KaBgRKhbZH3+2Ur4fnWx2A==",
       "type": "package",
@@ -5990,6 +6049,7 @@
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+      "AutoMapper.Extensions.Microsoft.DependencyInjection >= 12.0.1",
       "MangaWeb.Application >= 1.0.0",
       "MangaWeb.Domain >= 1.0.0",
       "MangaWeb.Infrastructure >= 1.0.0",
@@ -6005,11 +6065,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\MangaWebApi\\MangaWeb\\MangaWeb.Api.csproj",
+      "projectUniqueName": "E:\\CeeSuck\\MangaWebApi\\MangaWeb\\MangaWeb.Api.csproj",
       "projectName": "MangaWeb.Api",
-      "projectPath": "D:\\MangaWebApi\\MangaWeb\\MangaWeb.Api.csproj",
+      "projectPath": "E:\\CeeSuck\\MangaWebApi\\MangaWeb\\MangaWeb.Api.csproj",
       "packagesPath": "C:\\Users\\01689\\.nuget\\packages\\",
-      "outputPath": "D:\\MangaWebApi\\MangaWeb\\obj\\",
+      "outputPath": "E:\\CeeSuck\\MangaWebApi\\MangaWeb\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\01689\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -6027,17 +6087,17 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "D:\\MangaWebApi\\MangaWeb.Application\\MangaWeb.Application.csproj": {
-              "projectPath": "D:\\MangaWebApi\\MangaWeb.Application\\MangaWeb.Application.csproj"
+            "E:\\CeeSuck\\MangaWebApi\\MangaWeb.Application\\MangaWeb.Application.csproj": {
+              "projectPath": "E:\\CeeSuck\\MangaWebApi\\MangaWeb.Application\\MangaWeb.Application.csproj"
             },
-            "D:\\MangaWebApi\\MangaWeb.Domain\\MangaWeb.Domain.csproj": {
-              "projectPath": "D:\\MangaWebApi\\MangaWeb.Domain\\MangaWeb.Domain.csproj"
+            "E:\\CeeSuck\\MangaWebApi\\MangaWeb.Domain\\MangaWeb.Domain.csproj": {
+              "projectPath": "E:\\CeeSuck\\MangaWebApi\\MangaWeb.Domain\\MangaWeb.Domain.csproj"
             },
-            "D:\\MangaWebApi\\MangaWeb.Infrastructure\\MangaWeb.Infrastructure.csproj": {
-              "projectPath": "D:\\MangaWebApi\\MangaWeb.Infrastructure\\MangaWeb.Infrastructure.csproj"
+            "E:\\CeeSuck\\MangaWebApi\\MangaWeb.Infrastructure\\MangaWeb.Infrastructure.csproj": {
+              "projectPath": "E:\\CeeSuck\\MangaWebApi\\MangaWeb.Infrastructure\\MangaWeb.Infrastructure.csproj"
             },
-            "D:\\MangaWebApi\\MangaWeb.Persistence\\MangaWeb.Persistence.csproj": {
-              "projectPath": "D:\\MangaWebApi\\MangaWeb.Persistence\\MangaWeb.Persistence.csproj"
+            "E:\\CeeSuck\\MangaWebApi\\MangaWeb.Persistence\\MangaWeb.Persistence.csproj": {
+              "projectPath": "E:\\CeeSuck\\MangaWebApi\\MangaWeb.Persistence\\MangaWeb.Persistence.csproj"
             }
           }
         }
@@ -6057,6 +6117,10 @@
       "net6.0": {
         "targetAlias": "net6.0",
         "dependencies": {
+          "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+            "target": "Package",
+            "version": "[12.0.1, )"
+          },
           "Microsoft.AspNetCore.Authentication.JwtBearer": {
             "target": "Package",
             "version": "[6.0.28, )"
@@ -6086,19 +6150,19 @@
         "downloadDependencies": [
           {
             "name": "Microsoft.AspNetCore.App.Ref",
-            "version": "[6.0.32, 6.0.32]"
+            "version": "[6.0.33, 6.0.33]"
           },
           {
             "name": "Microsoft.NETCore.App.Host.win-x64",
-            "version": "[6.0.32, 6.0.32]"
+            "version": "[6.0.33, 6.0.33]"
           },
           {
             "name": "Microsoft.NETCore.App.Ref",
-            "version": "[6.0.32, 6.0.32]"
+            "version": "[6.0.33, 6.0.33]"
           },
           {
             "name": "Microsoft.WindowsDesktop.App.Ref",
-            "version": "[6.0.32, 6.0.32]"
+            "version": "[6.0.33, 6.0.33]"
           }
         ],
         "frameworkReferences": {
@@ -6109,7 +6173,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400\\RuntimeIdentifierGraph.json"
       }
     }
   }

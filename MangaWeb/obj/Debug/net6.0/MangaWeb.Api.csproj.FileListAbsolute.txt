@@ -105,3 +105,5 @@ D:\MangaWebApi\MangaWeb\obj\Debug\net6.0\MangaWeb.Api.sourcelink.json
 D:\MangaWebApi\MangaWeb\obj\Debug\net6.0\MangaWeb.Api.dll
 D:\MangaWebApi\MangaWeb\obj\Debug\net6.0\refint\MangaWeb.Api.dll
 D:\MangaWebApi\MangaWeb\obj\Debug\net6.0\MangaWeb.Api.pdb
+E:\CeeSuck\MangaWebApi\MangaWeb\bin\Debug\net6.0\AutoMapper.dll
+E:\CeeSuck\MangaWebApi\MangaWeb\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll

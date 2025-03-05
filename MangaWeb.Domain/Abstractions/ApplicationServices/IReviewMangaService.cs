@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace MangaWeb.Domain.Interfaces
+namespace MangaWeb.Domain.Abstractions.ApplicationServices
 {
     public interface IReviewMangaService
     {
@@ -13,5 +13,6 @@ namespace MangaWeb.Domain.Interfaces
         Task<ReviewMangaViewModel> CreateReviewAsync(ReviewMangaViewModel review);
         Task UpdateReviewAsync(ReviewMangaViewModel review);
         Task DeleteReviewAsync(Guid id);
+        Task CreateReviewAsync(ReviewMangaCreateViewModel model);
     }
 }
