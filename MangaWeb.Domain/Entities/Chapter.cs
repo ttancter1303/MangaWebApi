@@ -28,12 +28,28 @@ namespace MangaWeb.Domain.Entities
         public string ImagePaths { get; set; } // Lưu dạng JSON array của các đường dẫn ảnh
 
         [NotMapped]
-        public string[] Images 
+        public string[] Images
         {
-            get => string.IsNullOrEmpty(ImagePaths) 
-                ? Array.Empty<string>() 
-                : JsonSerializer.Deserialize<string[]>(ImagePaths);
-            set => ImagePaths = JsonSerializer.Serialize(value);
+            get
+            {
+                if (string.IsNullOrWhiteSpace(ImagePaths))
+                    return Array.Empty<string>();
+
+                try
+                {
+                    return JsonSerializer.Deserialize<string[]>(ImagePaths) ?? Array.Empty<string>();
+                }
+                catch (JsonException)
+                {
+                    return Array.Empty<string>(); // Trả về mảng rỗng nếu JSON không hợp lệ
+                }
+            }
+            set
+            {
+                ImagePaths = value is { Length: > 0 }
+                    ? JsonSerializer.Serialize(value)
+                    : string.Empty; // Nếu mảng rỗng, lưu giá trị rỗng thay vì chuỗi JSON
+            }
         }
 
         public int PageCount { get; set; } // Số trang của chapter

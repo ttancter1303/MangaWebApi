@@ -114,7 +114,7 @@
     "Parameters": [
       {
         "Name": "model",
-        "Type": "MangaWeb.Domain.Models.Chapters.ChapterCreateViewModel",
+        "Type": "MangaWeb.Domain.Models.Chapters.CreateChapterRequest",
         "IsRequired": true
       }
     ],
@@ -151,7 +151,7 @@
       },
       {
         "Name": "model",
-        "Type": "MangaWeb.Domain.Models.Chapters.ChapterUpdateViewModel",
+        "Type": "MangaWeb.Domain.Models.Chapters.UpdateChapterRequest",
         "IsRequired": true
       }
     ],
@@ -338,25 +338,51 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "MangaWeb.Api.Controllers.ReviewsController",
-    "Method": "AddReview",
-    "RelativePath": "api/Reviews",
+    "ContainingType": "MangaWeb.API.Controllers.ReviewMangaController",
+    "Method": "GetAllReviews",
+    "RelativePath": "api/ReviewManga",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MangaWeb.API.Controllers.ReviewMangaController",
+    "Method": "CreateReview",
+    "RelativePath": "api/ReviewManga",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "review",
-        "Type": "MangaWeb.Domain.Entities.ReviewManga",
+        "Name": "model",
+        "Type": "MangaWeb.Domain.Models.Reviews.ReviewMangaCreateViewModel",
         "IsRequired": true
       }
     ],
     "ReturnTypes": []
   },
   {
-    "ContainingType": "MangaWeb.Api.Controllers.ReviewsController",
+    "ContainingType": "MangaWeb.API.Controllers.ReviewMangaController",
+    "Method": "GetReviewById",
+    "RelativePath": "api/ReviewManga/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MangaWeb.API.Controllers.ReviewMangaController",
     "Method": "UpdateReview",
-    "RelativePath": "api/Reviews/{id}",
+    "RelativePath": "api/ReviewManga/{id}",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
@@ -367,39 +393,23 @@
         "IsRequired": true
       },
       {
-        "Name": "review",
-        "Type": "MangaWeb.Domain.Entities.ReviewManga",
+        "Name": "model",
+        "Type": "MangaWeb.Domain.Models.Reviews.ReviewMangaUpdateViewModel",
         "IsRequired": true
       }
     ],
     "ReturnTypes": []
   },
   {
-    "ContainingType": "MangaWeb.Api.Controllers.ReviewsController",
+    "ContainingType": "MangaWeb.API.Controllers.ReviewMangaController",
     "Method": "DeleteReview",
-    "RelativePath": "api/Reviews/{id}",
+    "RelativePath": "api/ReviewManga/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
         "Name": "id",
-        "Type": "System.Guid",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "MangaWeb.Api.Controllers.ReviewsController",
-    "Method": "GetReviews",
-    "RelativePath": "api/Reviews/{mangaId}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "mangaId",
         "Type": "System.Guid",
         "IsRequired": true
       }

@@ -7,12 +7,11 @@ namespace MangaWeb.Domain.Abstractions.ApplicationServices
 {
     public interface IReviewMangaService
     {
-        Task<IEnumerable<ReviewMangaViewModel>> GetAllReviewsAsync();
-        Task<ReviewMangaViewModel> GetReviewByIdAsync(Guid id);
-        Task<IEnumerable<ReviewMangaViewModel>> GetReviewsByMangaIdAsync(Guid mangaId);
-        Task<ReviewMangaViewModel> CreateReviewAsync(ReviewMangaViewModel review);
-        Task UpdateReviewAsync(ReviewMangaViewModel review);
+        Task<IEnumerable<ReviewMangaDetailViewModel>> GetAllReviewsAsync();
+        Task<ReviewMangaDetailViewModel> GetReviewByIdAsync(Guid id);
+        Task<IEnumerable<ReviewMangaDetailViewModel>> GetReviewsByMangaIdAsync(Guid mangaId);
+        Task<ReviewMangaDetailViewModel> CreateReviewAsync(ReviewMangaCreateViewModel review);
+        Task UpdateReviewAsync(ReviewMangaUpdateViewModel review);
         Task DeleteReviewAsync(Guid id);
-        Task CreateReviewAsync(ReviewMangaCreateViewModel model);
     }
 }

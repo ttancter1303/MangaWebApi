@@ -4,7 +4,7 @@ namespace MangaWeb.Domain.Exceptions;
 
 public class MangaNotFoundException : BaseException
 {
-    public MangaNotFoundException(int mangaId)
+    public MangaNotFoundException(Guid mangaId)
         : base(
             title: "Manga Not Found",
             message: $"Manga with ID {mangaId} was not found."

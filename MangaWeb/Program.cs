@@ -1,14 +1,17 @@
-﻿using MangaWeb.Infrastructure; // Thay đổi theo namespace của bạn
-using MangaWeb.Persistence; // Thay đổi theo namespace của bạn
-using MangaWeb.Application; // Thay đổi theo namespace của bạn
-using MangaWeb.Api; // Thay đổi theo namespace của bạn
-using MangaWeb.Domain.Abstractions.ApplicationServices; // Thay đổi theo namespace của bạn
+﻿using MangaWeb.Infrastructure; 
+using MangaWeb.Persistence; 
+using MangaWeb.Application; 
+using MangaWeb.Api; 
+using MangaWeb.Domain.Abstractions.ApplicationServices; 
 using Microsoft.EntityFrameworkCore;
+using MangaWeb.Application.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllers();
+//Đăng ký AutoMapper
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -30,7 +33,7 @@ builder.Services.Configure<JwtOption>(builder.Configuration.GetSection("JwtOptio
 #endregion
 
 #region Application
-builder.Services.AddServicesApplication(); // Gọi phương thức mở rộng từ MangaWeb.Application
+builder.Services.AddServicesApplication(); 
 #endregion
 
 var app = builder.Build();
@@ -53,9 +56,14 @@ app.Run();
 
 void InitDatabase(IApplicationBuilder app)
 {
-    using var serviceScope = app.ApplicationServices.GetService<IServiceScopeFactory>().CreateScope();
+    var scopeFactory = app.ApplicationServices.GetService<IServiceScopeFactory>();
+    if (scopeFactory == null) throw new Exception("IServiceScopeFactory not found!");
+
+    using var serviceScope = scopeFactory.CreateScope();
     var dbContext = serviceScope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
     dbContext.Database.Migrate();
-    var userService = serviceScope.ServiceProvider.GetRequiredService<IUserService>();
-    userService.InitializeUserAdminAsync().Wait();
+
+    var userService = serviceScope.ServiceProvider.GetService<IUserService>();
+    userService?.InitializeUserAdminAsync().Wait();
 }
+

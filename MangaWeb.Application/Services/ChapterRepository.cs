@@ -31,10 +31,10 @@ namespace MangaWeb.Application.Services
         public async Task<Chapter> GetByIdWithDetailsAsync(Guid id)
         {
             return await _context.Chapters
-                .Include(c => c.Images) // Giả sử bạn có một thuộc tính ChapterImages trong Chapter
-                .Include(c => c.Manga) // Nếu bạn cần thông tin về Manga
+                .Include(c => c.Manga) 
                 .FirstOrDefaultAsync(c => c.Id == id);
         }
+
 
         public async Task<IEnumerable<Chapter>> GetChaptersByMangaIdAsync(Guid mangaId)
         {

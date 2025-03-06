@@ -1,104 +1,88 @@
-﻿using MangaWeb.Domain.Abstractions.ApplicationServices;
+﻿using AutoMapper;
+using MangaWeb.Domain.Abstractions.ApplicationServices;
+using MangaWeb.Domain.Abstractions;
 using MangaWeb.Domain.Entities;
-using MangaWeb.Domain.Models.Reviews;
-using MangaWeb.Persistence; // Đảm bảo bạn có namespace đúng
-using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
+using MangaWeb.Domain.Enums;
+using MangaWeb.Domain.Exceptions;
+using MangaWeb.Domain.Models.Mangas;
+
 
 namespace MangaWeb.Application.Services
 {
-    public class ReviewMangaService : IReviewMangaService
+    public class MangaService : IMangaService
     {
-        private readonly ApplicationDbContext _context; // Sử dụng DbContext trực tiếp
+        private readonly IMangaRepository _mangaRepository;
+        private readonly IUnitOfWork _unitOfWork;
+        private readonly IMapper _mapper;
 
-        public ReviewMangaService(ApplicationDbContext context)
+        public MangaService(IMangaRepository mangaRepository, IUnitOfWork unitOfWork, IMapper mapper)
         {
-            _context = context;
+            _mangaRepository = mangaRepository;
+            _unitOfWork = unitOfWork;
+            _mapper = mapper;
         }
 
-        public async Task<IEnumerable<ReviewMangaViewModel>> GetAllReviewsAsync()
+        public async Task<IEnumerable<MangaViewModel>> GetAllMangasAsync()
         {
-            var reviews = await _context.ReviewMangas.ToListAsync(); // Lấy tất cả đánh giá
-            return MapToViewModel(reviews);
+            var mangas = await _mangaRepository.GetAllAsync();
+            return _mapper.Map<IEnumerable<MangaViewModel>>(mangas);
         }
 
-        public async Task<ReviewMangaViewModel> GetReviewByIdAsync(Guid id)
+        public async Task<MangaDetailViewModel> GetMangaByIdAsync(Guid id)
         {
-            var review = await _context.ReviewMangas.FindAsync(id); // Tìm đánh giá theo ID
-            return MapToViewModel(review);
-        }
-
-        public async Task<IEnumerable<ReviewMangaViewModel>> GetReviewsByMangaIdAsync(Guid mangaId)
-        {
-            var reviews = await _context.ReviewMangas
-                .Where(r => r.MangaId == mangaId)
-                .ToListAsync(); // Lấy đánh giá theo MangaId
-            return MapToViewModel(reviews);
-        }
-
-        public async Task<ReviewMangaViewModel> CreateReviewAsync(ReviewMangaViewModel review)
-        {
-            var reviewEntity = MapToEntity(review);
-            await _context.ReviewMangas.AddAsync(reviewEntity); // Thêm đánh giá mới
-            await _context.SaveChangesAsync(); // Lưu thay đổi
-            return MapToViewModel(reviewEntity);
-        }
-
-        public async Task UpdateReviewAsync(ReviewMangaViewModel review)
-        {
-            var reviewEntity = MapToEntity(review);
-            _context.ReviewMangas.Update(reviewEntity); // Cập nhật đánh giá
-            await _context.SaveChangesAsync(); // Lưu thay đổi
-        }
-
-        public async Task DeleteReviewAsync(Guid id)
-        {
-            var review = await _context.ReviewMangas.FindAsync(id); // Tìm đánh giá theo ID
-            if (review != null)
+            var manga = await _mangaRepository.GetByIdWithDetailsAsync(id);
+            if (manga == null)
             {
-                _context.ReviewMangas.Remove(review); // Xóa đánh giá
-                await _context.SaveChangesAsync(); // Lưu thay đổi
+                throw new MangaNotFoundException(id);
             }
+            return _mapper.Map<MangaDetailViewModel>(manga);
         }
 
-        // Các phương thức ánh xạ giữa Entity và ViewModel
-        private ReviewManga MapToEntity(ReviewMangaViewModel reviewViewModel)
+        public async Task<Guid> CreateMangaAsync(MangaCreateViewModel model)
         {
-            return new ReviewManga
-            {
-                Id = reviewViewModel.Id,
-                Title = reviewViewModel.Title,
-                Content = reviewViewModel.Content,
-                Rating = reviewViewModel.Rating,
-                MangaId = reviewViewModel.MangaId,
-                CreatedDate = DateTime.UtcNow,
-                // Các thuộc tính khác nếu cần
-            };
+            var manga = _mapper.Map<Manga>(model);
+            manga.Id = Guid.NewGuid();
+            manga.CreatedDate = DateTime.UtcNow;
+            manga.Status = EntityStatus.Active;
+
+            await _mangaRepository.AddAsync(manga);
+            await _unitOfWork.SaveChangesAsync();
+
+            return manga.Id;
         }
 
-        private ReviewMangaViewModel MapToViewModel(ReviewManga review)
+        public async Task UpdateMangaAsync(MangaUpdateViewModel model)
         {
-            return new ReviewMangaViewModel
+            var manga = await _mangaRepository.GetByIdAsync(model.Id);
+            if (manga == null)
             {
-                Id = review.Id,
-                Title = review.Title,
-                Content = review.Content,
-                Rating = review.Rating,
-                MangaId = review.MangaId,
-                // Các thuộc tính khác nếu cần
-            };
-        }
-
-        private IEnumerable<ReviewMangaViewModel> MapToViewModel(IEnumerable<ReviewManga> reviews)
-        {
-            var reviewViewModels = new List<ReviewMangaViewModel>();
-            foreach (var review in reviews)
-            {
-                reviewViewModels.Add(MapToViewModel(review));
+                throw new MangaNotFoundException(model.Id);
             }
-            return reviewViewModels;
+
+            _mapper.Map(model, manga);
+            manga.UpdatedDate = DateTime.UtcNow;
+
+            await _mangaRepository.UpdateAsync(manga);
+            await _unitOfWork.SaveChangesAsync();
         }
+
+        public async Task DeleteMangaAsync(Guid id)
+        {
+            var manga = await _mangaRepository.GetByIdAsync(id);
+            if (manga == null)
+            {
+                throw new MangaNotFoundException(id);
+            }
+
+            await _mangaRepository.DeleteAsync(manga);
+            await _unitOfWork.SaveChangesAsync();
+        }
+
+        public async Task<IEnumerable<MangaViewModel>> SearchMangasAsync(MangaSearchViewModel searchModel)
+        {
+            var mangas = await _mangaRepository.SearchAsync(searchModel.Title);
+            return _mapper.Map<IEnumerable<MangaViewModel>>(mangas);
+        }
+
     }
 }

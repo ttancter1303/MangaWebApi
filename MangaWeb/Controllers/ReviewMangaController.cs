@@ -1,97 +1,69 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using MangaWeb.Domain.Abstractions.ApplicationServices;
 using MangaWeb.Domain.Models.Reviews;
-using MangaWeb.Domain.Exceptions;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Threading.Tasks;
-using System.Collections.Generic;
-using MangaWeb.Application.Services;
-using MangaWeb.Domain.Abstractions.ApplicationServices;
 
-
-namespace MangaWeb.Api.Controllers
+namespace MangaWeb.API.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
     public class ReviewMangaController : ControllerBase
     {
-        private readonly IReviewMangaService _reviewService;
+        private readonly IReviewMangaService _reviewMangaService;
 
-        public ReviewMangaController(IReviewMangaService reviewService)
+        public ReviewMangaController(IReviewMangaService reviewMangaService)
         {
-            _reviewService = reviewService;
+            _reviewMangaService = reviewMangaService;
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<ReviewMangaViewModel>>> GetAllReviews()
+        public async Task<IActionResult> GetAllReviews()
         {
-            var reviews = await _reviewService.GetAllReviewsAsync();
+            var reviews = await _reviewMangaService.GetAllReviewsAsync();
             return Ok(reviews);
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<ReviewMangaViewModel>> GetReviewById(Guid id)
+        public async Task<IActionResult> GetReviewById(Guid id)
         {
-            var review = await _reviewService.GetReviewByIdAsync(id);
+            var review = await _reviewMangaService.GetReviewByIdAsync(id);
             if (review == null)
+            {
                 return NotFound();
-                
+            }
             return Ok(review);
         }
 
-        [HttpGet("manga/{mangaId}")]
-        public async Task<ActionResult<IEnumerable<ReviewMangaViewModel>>> GetReviewsByMangaId(Guid mangaId)
-        {
-            var reviews = await _reviewService.GetReviewsByMangaIdAsync(mangaId);
-            return Ok(reviews);
-        }
-
         [HttpPost]
-        public async Task<ActionResult<ReviewMangaViewModel>> CreateReview(ReviewMangaViewModel reviewModel)
+        public async Task<IActionResult> CreateReview([FromBody] ReviewMangaCreateViewModel model)
         {
-            try
+            if (!ModelState.IsValid)
             {
-                var createdReview = await _reviewService.CreateReviewAsync(reviewModel);
-                return CreatedAtAction(nameof(GetReviewById), new { id = createdReview.Id }, createdReview);
+                return BadRequest(ModelState);
             }
-            catch (System.IO.InvalidDataException ex)
-            {
-                return BadRequest(ex.Message);
-            }
+
+            var createdReview = await _reviewMangaService.CreateReviewAsync(model);
+            return CreatedAtAction(nameof(GetReviewById), new { id = createdReview.Id }, createdReview);
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateReview(Guid id, ReviewMangaViewModel reviewModel)
+        public async Task<IActionResult> UpdateReview(Guid id, [FromBody] ReviewMangaUpdateViewModel model)
         {
-            if (id != reviewModel.Id)
-                return BadRequest("ID không khớp");
+            if (!ModelState.IsValid || id != model.Id)
+            {
+                return BadRequest(ModelState);
+            }
 
-            try
-            {
-                await _reviewService.UpdateReviewAsync(reviewModel);
-                return NoContent();
-            }
-            catch (System.IO.InvalidDataException ex)
-            {
-                return BadRequest(ex.Message);
-            }
-            catch (NotFoundException)
-            {
-                return NotFound();
-            }
+            await _reviewMangaService.UpdateReviewAsync(model);
+            return NoContent();
         }
 
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteReview(Guid id)
         {
-            try
-            {
-                await _reviewService.DeleteReviewAsync(id);
-                return NoContent();
-            }
-            catch (NotFoundException)
-            {
-                return NotFound();
-            }
+            await _reviewMangaService.DeleteReviewAsync(id);
+            return NoContent();
         }
     }
 }

@@ -1,70 +1,85 @@
 ﻿using MangaWeb.Domain.Abstractions.ApplicationServices;
 using MangaWeb.Domain.Models.Reviews;
-using Microsoft.AspNetCore.Mvc;
+using MangaWeb.Domain.Abstractions;
+using MangaWeb.Domain.Entities;
+using AutoMapper;
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace MangaWeb.API.Controllers
+namespace MangaWeb.Application.Services
 {
-    [ApiController]
-    [Route("api/[controller]")]
-    public class ReviewMangaController : ControllerBase
+    public class ReviewMangaService : IReviewMangaService
     {
-        private readonly IReviewMangaService _reviewMangaService;
+        private readonly IReviewMangaRepository _reviewRepository;
+        private readonly IUnitOfWork _unitOfWork;
+        private readonly IMapper _mapper;
 
-        public ReviewMangaController(IReviewMangaService reviewMangaService)
+        public ReviewMangaService(IReviewMangaRepository reviewRepository, IUnitOfWork unitOfWork, IMapper mapper)
         {
-            _reviewMangaService = reviewMangaService;
+            _reviewRepository = reviewRepository;
+            _unitOfWork = unitOfWork;
+            _mapper = mapper;
         }
 
-        [HttpGet]
-        public async Task<IActionResult> GetAllReviews()
+        public async Task<IEnumerable<ReviewMangaViewModel>> GetAllReviewsAsync()
         {
-            var reviews = await _reviewMangaService.GetAllReviewsAsync();
-            return Ok(reviews);
+            var reviews = await _reviewRepository.GetAllAsync();
+            return _mapper.Map<IEnumerable<ReviewMangaViewModel>>(reviews);
         }
 
-        [HttpGet("{id}")]
-        public async Task<IActionResult> GetReviewById(Guid id)
+        public async Task<ReviewMangaViewModel> GetReviewByIdAsync(Guid id)
         {
-            var review = await _reviewMangaService.GetReviewByIdAsync(id);
-            if (review == null)
-            {
-                return NotFound();
-            }
-            return Ok(review);
+            var review = await _reviewRepository.GetByIdAsync(id);
+            if (review == null) throw new Exception("Review not found");
+            return _mapper.Map<ReviewMangaViewModel>(review);
         }
 
-        [HttpPost]
-        public async Task<IActionResult> CreateReview([FromBody] ReviewMangaCreateViewModel model)
+        public async Task<ReviewMangaViewModel> CreateReviewAsync(ReviewMangaCreateViewModel reviewModel)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
-            var reviewId = await _reviewMangaService.CreateReviewAsync(model);
-            return CreatedAtAction(nameof(GetReviewById), new { id = reviewId.Id }, model);
+            var review = _mapper.Map<ReviewManga>(reviewModel);
+            await _reviewRepository.AddAsync(review);
+            await _unitOfWork.SaveChangesAsync();
+            return _mapper.Map<ReviewMangaViewModel>(review);
         }
 
-        [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateReview(Guid id, [FromBody] ReviewMangaUpdateViewModel model)
+        public async Task UpdateReviewAsync(ReviewMangaUpdateViewModel reviewModel)
         {
-            if (!ModelState.IsValid || id != model.Id)
-            {
-                return BadRequest(ModelState);
-            }
+            var review = await _reviewRepository.GetByIdAsync(reviewModel.Id);
+            if (review == null) throw new Exception("Review not found");
 
-            await _reviewMangaService.UpdateReviewAsync(model);
-            return NoContent();
+            _mapper.Map(reviewModel, review);
+            await _reviewRepository.UpdateAsync(review);
+            await _unitOfWork.SaveChangesAsync();
         }
 
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteReview(Guid id)
+        public async Task DeleteReviewAsync(Guid id)
         {
-            await _reviewMangaService.DeleteReviewAsync(id);
-            return NoContent();
+            var review = await _reviewRepository.GetByIdAsync(id);
+            if (review == null) throw new Exception("Review not found");
+
+            await _reviewRepository.DeleteAsync(review);
+            await _unitOfWork.SaveChangesAsync();
         }
 
+        Task<IEnumerable<ReviewMangaDetailViewModel>> IReviewMangaService.GetAllReviewsAsync()
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<ReviewMangaDetailViewModel> IReviewMangaService.GetReviewByIdAsync(Guid id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<IEnumerable<ReviewMangaDetailViewModel>> GetReviewsByMangaIdAsync(Guid mangaId)
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<ReviewMangaDetailViewModel> IReviewMangaService.CreateReviewAsync(ReviewMangaCreateViewModel review)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
