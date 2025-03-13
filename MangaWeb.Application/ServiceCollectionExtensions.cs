@@ -11,6 +11,7 @@ public static class ServiceCollectionExtensions
     {
         services.AddScoped<IChapterRepository, ChapterRepository>();
         services.AddScoped<IChapterService, ChapterService>();
+
         //services.AddScoped<IImageService, ImageService>();
         services.AddScoped<IMangaService, MangaService>();
         services.AddScoped<IReviewMangaService, ReviewMangaService>();
@@ -18,7 +19,7 @@ public static class ServiceCollectionExtensions
         services.AddScoped<ITagService, TagService>();
         services.AddScoped<IMangaRepository, MangaRepository>(); 
         services.AddScoped<IReviewMangaRepository, ReviewMangaRepository>(); 
-        //services.AddScoped<IUserService, UserService>();
+        services.AddScoped<IUserService, UserService>();
     }
 
 }

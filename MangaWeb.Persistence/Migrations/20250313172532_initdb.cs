@@ -14,9 +14,6 @@ namespace MangaWeb.Persistence.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    Status = table.Column<int>(type: "int", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     NormalizedName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     ConcurrencyStamp = table.Column<string>(type: "nvarchar(max)", nullable: true)
@@ -31,10 +28,7 @@ namespace MangaWeb.Persistence.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    FullName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    AvatarUrl = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    Status = table.Column<int>(type: "int", nullable: false),
+                    IsSystemUser = table.Column<bool>(type: "bit", nullable: false),
                     UserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     NormalizedUserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     Email = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
@@ -79,12 +73,27 @@ namespace MangaWeb.Persistence.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Code = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    Index = table.Column<int>(type: "int", nullable: false),
+                    ParentCode = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Permissions", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "RolesPermissions",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    RoleId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    PermissionCode = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_RolesPermissions", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -237,30 +246,6 @@ namespace MangaWeb.Persistence.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "RolePermissions",
-                columns: table => new
-                {
-                    RoleId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    PermissionId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_RolePermissions", x => new { x.RoleId, x.PermissionId });
-                    table.ForeignKey(
-                        name: "FK_RolePermissions_AspNetRoles_RoleId",
-                        column: x => x.RoleId,
-                        principalTable: "AspNetRoles",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_RolePermissions_Permissions_PermissionId",
-                        column: x => x.PermissionId,
-                        principalTable: "Permissions",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Chapters",
                 columns: table => new
                 {
@@ -268,6 +253,10 @@ namespace MangaWeb.Persistence.Migrations
                     Title = table.Column<string>(type: "nvarchar(1000)", nullable: false),
                     ChapterNumber = table.Column<int>(type: "int", nullable: false),
                     MangaId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    ImagePaths = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    PageCount = table.Column<int>(type: "int", nullable: false),
+                    StorageLocation = table.Column<string>(type: "nvarchar(255)", nullable: false),
+                    TotalSize = table.Column<long>(type: "bigint", nullable: false),
                     CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     CreatedBy = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
                     UpdatedBy = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
@@ -286,7 +275,7 @@ namespace MangaWeb.Persistence.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "MangaTags",
+                name: "MangaTag",
                 columns: table => new
                 {
                     MangasId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
@@ -294,15 +283,15 @@ namespace MangaWeb.Persistence.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_MangaTags", x => new { x.MangasId, x.TagsId });
+                    table.PrimaryKey("PK_MangaTag", x => new { x.MangasId, x.TagsId });
                     table.ForeignKey(
-                        name: "FK_MangaTags_Mangas_MangasId",
+                        name: "FK_MangaTag_Mangas_MangasId",
                         column: x => x.MangasId,
                         principalTable: "Mangas",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_MangaTags_Tags_TagsId",
+                        name: "FK_MangaTag_Tags_TagsId",
                         column: x => x.TagsId,
                         principalTable: "Tags",
                         principalColumn: "Id",
@@ -356,31 +345,6 @@ namespace MangaWeb.Persistence.Migrations
                         name: "FK_ReviewMangas_Mangas_MangaId",
                         column: x => x.MangaId,
                         principalTable: "Mangas",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "ChapterImages",
-                columns: table => new
-                {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    PageNumber = table.Column<int>(type: "int", nullable: false),
-                    ImageUrl = table.Column<string>(type: "nvarchar(1000)", nullable: false),
-                    ChapterId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    CreatedBy = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
-                    UpdatedBy = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
-                    UpdatedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    Status = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_ChapterImages", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_ChapterImages_Chapters_ChapterId",
-                        column: x => x.ChapterId,
-                        principalTable: "Chapters",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -449,11 +413,6 @@ namespace MangaWeb.Persistence.Migrations
                 filter: "[NormalizedUserName] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
-                name: "IX_ChapterImages_ChapterId",
-                table: "ChapterImages",
-                column: "ChapterId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_Chapters_MangaId",
                 table: "Chapters",
                 column: "MangaId");
@@ -469,8 +428,8 @@ namespace MangaWeb.Persistence.Migrations
                 column: "AuthorId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_MangaTags_TagsId",
-                table: "MangaTags",
+                name: "IX_MangaTag_TagsId",
+                table: "MangaTag",
                 column: "TagsId");
 
             migrationBuilder.CreateIndex(
@@ -482,11 +441,6 @@ namespace MangaWeb.Persistence.Migrations
                 name: "IX_ReviewMangas_MangaId",
                 table: "ReviewMangas",
                 column: "MangaId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_RolePermissions_PermissionId",
-                table: "RolePermissions",
-                column: "PermissionId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -507,22 +461,25 @@ namespace MangaWeb.Persistence.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
-                name: "ChapterImages");
-
-            migrationBuilder.DropTable(
                 name: "ChapterViews");
 
             migrationBuilder.DropTable(
-                name: "MangaTags");
+                name: "MangaTag");
 
             migrationBuilder.DropTable(
                 name: "MangaViews");
 
             migrationBuilder.DropTable(
+                name: "Permissions");
+
+            migrationBuilder.DropTable(
                 name: "ReviewMangas");
 
             migrationBuilder.DropTable(
-                name: "RolePermissions");
+                name: "RolesPermissions");
+
+            migrationBuilder.DropTable(
+                name: "AspNetRoles");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
@@ -532,12 +489,6 @@ namespace MangaWeb.Persistence.Migrations
 
             migrationBuilder.DropTable(
                 name: "Tags");
-
-            migrationBuilder.DropTable(
-                name: "AspNetRoles");
-
-            migrationBuilder.DropTable(
-                name: "Permissions");
 
             migrationBuilder.DropTable(
                 name: "Mangas");

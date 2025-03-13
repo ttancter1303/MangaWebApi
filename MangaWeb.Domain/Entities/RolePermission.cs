@@ -1,10 +1,13 @@
-﻿using MangaWeb.Domain.Entities;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 
-public class RolePermission
+using MangaWeb.Domain.Abstractions;
+
+namespace MangaWeb.Domain.Entities
 {
-    public Guid RoleId { get; set; }
-    public AppRole Role { get; set; }  // Quan hệ với AppRole
-
-    public Guid PermissionId { get; set; }
-    public Permission Permission { get; set; }  // Quan hệ với Permission
+    [Table("RolesPermissions")]
+    public class RolePermission : DomainEntity<Guid>
+    {
+        public Guid RoleId { get; set; }
+        public string PermissionCode { get; set; } = string.Empty;
+    }
 }

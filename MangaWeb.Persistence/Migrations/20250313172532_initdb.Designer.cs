@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MangaWeb.Persistence.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20250224183919_initdb")]
+    [Migration("20250313172532_initdb")]
     partial class initdb
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -36,7 +36,7 @@ namespace MangaWeb.Persistence.Migrations
 
                     b.HasIndex("TagsId");
 
-                    b.ToTable("MangaTags", (string)null);
+                    b.ToTable("MangaTag");
                 });
 
             modelBuilder.Entity("MangaWeb.Domain.Entities.AppRole", b =>
@@ -49,12 +49,6 @@ namespace MangaWeb.Persistence.Migrations
                         .IsConcurrencyToken()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime?>("CreatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Name")
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
@@ -62,9 +56,6 @@ namespace MangaWeb.Persistence.Migrations
                     b.Property<string>("NormalizedName")
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
-
-                    b.Property<int>("Status")
-                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -85,15 +76,9 @@ namespace MangaWeb.Persistence.Migrations
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("int");
 
-                    b.Property<string>("AvatarUrl")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime?>("CreatedDate")
-                        .HasColumnType("datetime2");
 
                     b.Property<string>("Email")
                         .HasMaxLength(256)
@@ -102,8 +87,8 @@ namespace MangaWeb.Persistence.Migrations
                     b.Property<bool>("EmailConfirmed")
                         .HasColumnType("bit");
 
-                    b.Property<string>("FullName")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<bool>("IsSystemUser")
+                        .HasColumnType("bit");
 
                     b.Property<bool>("LockoutEnabled")
                         .HasColumnType("bit");
@@ -130,9 +115,6 @@ namespace MangaWeb.Persistence.Migrations
 
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("Status")
-                        .HasColumnType("int");
 
                     b.Property<bool>("TwoFactorEnabled")
                         .HasColumnType("bit");
@@ -205,15 +187,29 @@ namespace MangaWeb.Persistence.Migrations
                     b.Property<DateTime?>("CreatedDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("ImagePaths")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<Guid>("MangaId")
                         .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("PageCount")
+                        .HasColumnType("int");
 
                     b.Property<int>("Status")
                         .HasColumnType("int");
 
+                    b.Property<string>("StorageLocation")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(255)");
+
                     b.Property<string>("Title")
                         .IsRequired()
                         .HasColumnType("nvarchar(1000)");
+
+                    b.Property<long>("TotalSize")
+                        .HasColumnType("bigint");
 
                     b.Property<Guid?>("UpdatedBy")
                         .HasColumnType("uniqueidentifier");
@@ -226,44 +222,6 @@ namespace MangaWeb.Persistence.Migrations
                     b.HasIndex("MangaId");
 
                     b.ToTable("Chapters");
-                });
-
-            modelBuilder.Entity("MangaWeb.Domain.Entities.ChapterImage", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("ChapterId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid?>("CreatedBy")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime?>("CreatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("ImageUrl")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(1000)");
-
-                    b.Property<int>("PageNumber")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Status")
-                        .HasColumnType("int");
-
-                    b.Property<Guid?>("UpdatedBy")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime?>("UpdatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ChapterId");
-
-                    b.ToTable("ChapterImages");
                 });
 
             modelBuilder.Entity("MangaWeb.Domain.Entities.ChapterView", b =>
@@ -381,10 +339,18 @@ namespace MangaWeb.Persistence.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("Description")
+                    b.Property<string>("Code")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("Index")
+                        .HasColumnType("int");
+
                     b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ParentCode")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -436,6 +402,24 @@ namespace MangaWeb.Persistence.Migrations
                     b.HasIndex("MangaId");
 
                     b.ToTable("ReviewMangas");
+                });
+
+            modelBuilder.Entity("MangaWeb.Domain.Entities.RolePermission", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("PermissionCode")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("RoleId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("RolesPermissions");
                 });
 
             modelBuilder.Entity("MangaWeb.Domain.Entities.Tag", b =>
@@ -571,21 +555,6 @@ namespace MangaWeb.Persistence.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("RolePermission", b =>
-                {
-                    b.Property<Guid>("RoleId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("PermissionId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.HasKey("RoleId", "PermissionId");
-
-                    b.HasIndex("PermissionId");
-
-                    b.ToTable("RolePermissions");
-                });
-
             modelBuilder.Entity("MangaTag", b =>
                 {
                     b.HasOne("MangaWeb.Domain.Entities.Manga", null)
@@ -610,17 +579,6 @@ namespace MangaWeb.Persistence.Migrations
                         .IsRequired();
 
                     b.Navigation("Manga");
-                });
-
-            modelBuilder.Entity("MangaWeb.Domain.Entities.ChapterImage", b =>
-                {
-                    b.HasOne("MangaWeb.Domain.Entities.Chapter", "Chapter")
-                        .WithMany("ChapterImages")
-                        .HasForeignKey("ChapterId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Chapter");
                 });
 
             modelBuilder.Entity("MangaWeb.Domain.Entities.ChapterView", b =>
@@ -718,38 +676,9 @@ namespace MangaWeb.Persistence.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("RolePermission", b =>
-                {
-                    b.HasOne("MangaWeb.Domain.Entities.Permission", "Permission")
-                        .WithMany("RolePermissions")
-                        .HasForeignKey("PermissionId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("MangaWeb.Domain.Entities.AppRole", "Role")
-                        .WithMany("RolePermissions")
-                        .HasForeignKey("RoleId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Permission");
-
-                    b.Navigation("Role");
-                });
-
-            modelBuilder.Entity("MangaWeb.Domain.Entities.AppRole", b =>
-                {
-                    b.Navigation("RolePermissions");
-                });
-
             modelBuilder.Entity("MangaWeb.Domain.Entities.Author", b =>
                 {
                     b.Navigation("Mangas");
-                });
-
-            modelBuilder.Entity("MangaWeb.Domain.Entities.Chapter", b =>
-                {
-                    b.Navigation("ChapterImages");
                 });
 
             modelBuilder.Entity("MangaWeb.Domain.Entities.Manga", b =>
@@ -757,11 +686,6 @@ namespace MangaWeb.Persistence.Migrations
                     b.Navigation("Chapters");
 
                     b.Navigation("ReviewMangas");
-                });
-
-            modelBuilder.Entity("MangaWeb.Domain.Entities.Permission", b =>
-                {
-                    b.Navigation("RolePermissions");
                 });
 #pragma warning restore 612, 618
         }
