@@ -598,6 +598,11 @@ namespace MangaWeb.Application.Services
 
             return false;
         }
+
+        public Task<ResponseResult> RegisterUser(RegisterUserViewModel model)
+        {
+            throw new NotImplementedException();
+        }
         #endregion
     }
 }

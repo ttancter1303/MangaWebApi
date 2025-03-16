@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Threading.Tasks;
 
-namespace MangaWeb.API.Controllers
+namespace MangaWeb.Api.Controllers.Public
 {
     [ApiController]
     [Route("api/[controller]")]

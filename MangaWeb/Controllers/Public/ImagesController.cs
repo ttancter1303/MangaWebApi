@@ -5,7 +5,7 @@ using MangaWeb.Domain.Utility;
 using System;
 using System.Collections.Generic;
 
-namespace MangaWeb.Api.Controllers
+namespace MangaWeb.Api.Controllers.Public
 {
     [ApiController]
     [Route("api/[controller]")]

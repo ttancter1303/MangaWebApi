@@ -15,7 +15,7 @@ namespace MangaWeb.Domain.Abstractions.ApplicationServices
         #endregion
 
         #region Customers
-        Task<ResponseResult> RegisterCustomer(RegisterUserViewModel model);
+        Task<ResponseResult> RegisterUser(RegisterUserViewModel model);
         #endregion
 
         #region SystemUsers
