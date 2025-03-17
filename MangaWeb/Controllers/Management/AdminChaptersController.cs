@@ -1,39 +1,19 @@
-﻿using MangaWeb.Domain.Abstractions.ApplicationServices;
-using MangaWeb.Application.Services;
+﻿using MangaWeb.Api.Controllers.Base;
+using MangaWeb.Domain.Abstractions.ApplicationServices;
 using MangaWeb.Domain.Models.Chapters;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Threading.Tasks;
 
-namespace MangaWeb.Api.Controllers.Public
+namespace MangaWeb.Api.Controllers.Management
 {
-    [ApiController]
-    [Route("api/[controller]")]
-    public class ChaptersController : ControllerBase
+    public class AdminChaptersController : AuthorizeController
     {
         private readonly IChapterService _chapterService;
 
-        public ChaptersController(IChapterService chapterService)
+        public AdminChaptersController(IChapterService chapterService)
         {
             _chapterService = chapterService;
-        }
-
-        [HttpGet]
-        public async Task<IActionResult> GetAllChapters()
-        {
-            var chapters = await _chapterService.GetAllChaptersAsync();
-            return Ok(chapters);
-        }
-
-        [HttpGet("{id}")]
-        public async Task<IActionResult> GetChapterById(Guid id)
-        {
-            var chapter = await _chapterService.GetChapterByIdAsync(id);
-            if (chapter == null)
-            {
-                return NotFound();
-            }
-            return Ok(chapter);
         }
 
         [HttpPost]
@@ -47,7 +27,16 @@ namespace MangaWeb.Api.Controllers.Public
             var chapterId = await _chapterService.CreateChapterAsync(model);
             return CreatedAtAction(nameof(GetChapterById), new { id = chapterId }, model);
         }
-
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetChapterById(Guid id)
+        {
+            var chapter = await _chapterService.GetChapterByIdAsync(id);
+            if (chapter == null)
+            {
+                return NotFound();
+            }
+            return Ok(chapter);
+        }
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateChapter(Guid id, [FromBody] UpdateChapterRequest model)
         {

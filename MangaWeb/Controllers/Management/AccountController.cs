@@ -1,12 +1,12 @@
-﻿using DemoApp.Api.Controllers.Base;
-using DemoApp.Api.Filters;
-using DemoApp.Domain.Abstractions.ApplicationServices;
-using DemoApp.Domain.Models.Commons;
-using DemoApp.Domain.Models.Users;
-using DemoApp.Domain.Utility;
+﻿using MangaWeb.Api.Controllers.Base;
+using MangaWeb.Api.Filters;
+using MangaWeb.Domain.Abstractions.ApplicationServices;
+using MangaWeb.Domain.Models.Commons;
+using MangaWeb.Domain.Models.Users;
+using MangaWeb.Domain.Utility;
 using Microsoft.AspNetCore.Mvc;
 
-namespace DemoApp.Api.Controllers.Management
+namespace MangaWeb.Api.Controllers.Management
 {
 
     public class AccountController : AuthorizeController
