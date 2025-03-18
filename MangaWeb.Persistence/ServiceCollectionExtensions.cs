@@ -12,9 +12,14 @@ public static class ServiceCollectionExtensions
     public static void AddSqlServerPersistence(this IServiceCollection services, IConfiguration configuration)
     {
         var assembly = typeof(ApplicationDbContext).Assembly.GetName().Name;
-        services.AddDbContext<ApplicationDbContext>((option) =>
+        var defaultConnection = configuration.GetConnectionString("DefaultConnection");
+        var secondaryConnection = configuration.GetConnectionString("SecondaryConnection");
+
+        services.AddDbContext<ApplicationDbContext>(options =>
         {
-            option.UseSqlServer(configuration["ConnectionStrings:DefaultConnection"], b => b.MigrationsAssembly(assembly));
+            // Sử dụng DefaultConnection nếu có, nếu không thì fallback sang SecondaryConnection
+            var connectionString = !string.IsNullOrEmpty(defaultConnection) ? defaultConnection : secondaryConnection;
+            options.UseSqlServer(connectionString, b => b.MigrationsAssembly(assembly));
         });
 
         services.AddIdentityCore<AppUser>()

@@ -23,3 +23,10 @@ D:\MangaWebApi\MangaWeb.Persistence\obj\Debug\net6.0\MangaWeb.Persistence.source
 D:\MangaWebApi\MangaWeb.Persistence\obj\Debug\net6.0\MangaWeb.Persistence.dll
 D:\MangaWebApi\MangaWeb.Persistence\obj\Debug\net6.0\refint\MangaWeb.Persistence.dll
 D:\MangaWebApi\MangaWeb.Persistence\obj\Debug\net6.0\MangaWeb.Persistence.pdb
+D:\MangaWebApi\MangaWeb.Persistence\bin\Debug\net6.0\MangaWeb.Persistence.deps.json
+D:\MangaWebApi\MangaWeb.Persistence\bin\Debug\net6.0\MangaWeb.Persistence.dll
+D:\MangaWebApi\MangaWeb.Persistence\bin\Debug\net6.0\MangaWeb.Persistence.pdb
+D:\MangaWebApi\MangaWeb.Persistence\bin\Debug\net6.0\MangaWeb.Domain.dll
+D:\MangaWebApi\MangaWeb.Persistence\bin\Debug\net6.0\MangaWeb.Domain.pdb
+D:\MangaWebApi\MangaWeb.Persistence\obj\Debug\net6.0\MangaWeb.8208D8F8.Up2Date
+D:\MangaWebApi\MangaWeb.Persistence\obj\Debug\net6.0\ref\MangaWeb.Persistence.dll

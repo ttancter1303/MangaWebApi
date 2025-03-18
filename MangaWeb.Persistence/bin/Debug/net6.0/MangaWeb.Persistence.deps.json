@@ -1160,10 +1160,7 @@
           "Microsoft.AspNetCore.Mvc.Core": "2.2.5"
         },
         "runtime": {
-          "MangaWeb.Domain.dll": {
-            "assemblyVersion": "1.0.0",
-            "fileVersion": "1.0.0.0"
-          }
+          "MangaWeb.Domain.dll": {}
         }
       }
     }

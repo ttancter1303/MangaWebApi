@@ -14,65 +14,6 @@ public class ApplicationDbContext : IdentityDbContext<AppUser, AppRole, Guid>
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);
-
-        //// Cấu hình quan hệ nhiều-nhiều giữa Manga và Tag
-        //modelBuilder.Entity<Manga>()
-        //    .HasMany(m => m.Tags)
-        //    .WithMany(t => t.Mangas)
-        //    .UsingEntity(j => j.ToTable("MangaTags"));
-
-        //// Cấu hình quan hệ một-nhiều giữa Manga và Chapter
-        //modelBuilder.Entity<Chapter>()
-        //    .HasOne(c => c.Manga)
-        //    .WithMany(m => m.Chapters)
-        //    .HasForeignKey(c => c.MangaId);
-
-        //// Cấu hình cho Chapter
-        //modelBuilder.Entity<Chapter>(entity =>
-        //{
-        //    entity.Property(e => e.Title)
-        //        .IsRequired()
-        //        .HasColumnType("nvarchar(1000)");
-
-        //    entity.Property(e => e.ImagePaths)
-        //        .IsRequired()
-        //        .HasColumnType("nvarchar(max)");
-
-        //    entity.Property(e => e.StorageLocation)
-        //        .HasColumnType("nvarchar(255)");
-
-        //    entity.Property(e => e.TotalSize)
-        //        .IsRequired();
-
-        //    entity.Property(e => e.PageCount)
-        //        .IsRequired();
-        //});
-
-        //// Cấu hình quan hệ một-nhiều giữa Manga và ReviewManga
-        //modelBuilder.Entity<ReviewManga>()
-        //    .HasOne(r => r.Manga)
-        //    .WithMany(m => m.ReviewMangas)
-        //    .HasForeignKey(r => r.MangaId);
-
-        //// Cấu hình quan hệ một-nhiều giữa Manga và Author
-        //modelBuilder.Entity<Manga>()
-        //    .HasOne(m => m.Author)
-        //    .WithMany(a => a.Mangas)
-        //    .HasForeignKey(m => m.AuthorId);
-
-        //// Cấu hình quan hệ nhiều-nhiều giữa Role và Permission
-        //modelBuilder.Entity<RolePermission>()
-        //    .HasKey(rp => new { rp.RoleId, rp.PermissionId });
-
-        //modelBuilder.Entity<RolePermission>()
-        //    .HasOne(rp => rp.Role)
-        //    .WithMany(r => r.RolePermissions)
-        //    .HasForeignKey(rp => rp.RoleId);
-
-        //modelBuilder.Entity<RolePermission>()
-        //    .HasOne(rp => rp.Permission)
-        //    .WithMany(p => p.RolePermissions)
-        //    .HasForeignKey(rp => rp.PermissionId);
     }
 
     // Các DbSet cho các entity

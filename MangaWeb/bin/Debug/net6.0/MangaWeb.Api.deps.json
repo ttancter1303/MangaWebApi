@@ -1135,10 +1135,7 @@
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "6.0.25"
         },
         "runtime": {
-          "MangaWeb.Application.dll": {
-            "assemblyVersion": "1.0.0",
-            "fileVersion": "1.0.0.0"
-          }
+          "MangaWeb.Application.dll": {}
         }
       },
       "MangaWeb.Domain/1.0.0": {
@@ -1147,10 +1144,7 @@
           "Microsoft.AspNetCore.Mvc.Core": "2.2.5"
         },
         "runtime": {
-          "MangaWeb.Domain.dll": {
-            "assemblyVersion": "1.0.0",
-            "fileVersion": "1.0.0.0"
-          }
+          "MangaWeb.Domain.dll": {}
         }
       },
       "MangaWeb.Infrastructure/1.0.0": {
@@ -1162,10 +1156,7 @@
           "Serilog": "3.1.1"
         },
         "runtime": {
-          "MangaWeb.Infrastructure.dll": {
-            "assemblyVersion": "1.0.0",
-            "fileVersion": "1.0.0.0"
-          }
+          "MangaWeb.Infrastructure.dll": {}
         }
       },
       "MangaWeb.Persistence/1.0.0": {
@@ -1175,10 +1166,7 @@
           "Microsoft.EntityFrameworkCore.SqlServer": "6.0.25"
         },
         "runtime": {
-          "MangaWeb.Persistence.dll": {
-            "assemblyVersion": "1.0.0",
-            "fileVersion": "1.0.0.0"
-          }
+          "MangaWeb.Persistence.dll": {}
         }
       }
     }
