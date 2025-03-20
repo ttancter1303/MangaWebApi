@@ -16,13 +16,6 @@ namespace MangaWeb.Api.Controllers.Management
             _userService = userService;
         }
 
-        [HttpPost]
-        [Route("login")]
-        public async Task<AuthorizedResponseModel> Login([FromBody] LoginViewModel model)
-        {
-            var result = await _userService.Login(model);
-            return result;
-        }
 
         [HttpPost]
         [Route("get-profile")]
@@ -48,12 +41,5 @@ namespace MangaWeb.Api.Controllers.Management
             return result;
         }
 
-        [HttpPost]
-        [Route("register-user")]
-        public async Task<ResponseResult> RegisterUser([FromBody] RegisterUserViewModel model)
-        {
-            var result = await _userService.RegisterUser(model);
-            return result;
-        }
     }
 }

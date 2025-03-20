@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 
 namespace MangaWeb.Api.Controllers.Management
 {
+    [ApiController]
+    [Route("api/admin/chapters")]
     public class AdminChaptersController : AuthorizeController
     {
         private readonly IChapterService _chapterService;

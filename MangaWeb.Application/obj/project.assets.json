@@ -5740,11 +5740,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\MangaWebApi\\MangaWeb.Application\\MangaWeb.Application.csproj",
+      "projectUniqueName": "E:\\CeeSuck\\MangaWebApi\\MangaWeb.Application\\MangaWeb.Application.csproj",
       "projectName": "MangaWeb.Application",
-      "projectPath": "D:\\MangaWebApi\\MangaWeb.Application\\MangaWeb.Application.csproj",
+      "projectPath": "E:\\CeeSuck\\MangaWebApi\\MangaWeb.Application\\MangaWeb.Application.csproj",
       "packagesPath": "C:\\Users\\01689\\.nuget\\packages\\",
-      "outputPath": "D:\\MangaWebApi\\MangaWeb.Application\\obj\\",
+      "outputPath": "E:\\CeeSuck\\MangaWebApi\\MangaWeb.Application\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\01689\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -5762,11 +5762,11 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "D:\\MangaWebApi\\MangaWeb.Domain\\MangaWeb.Domain.csproj": {
-              "projectPath": "D:\\MangaWebApi\\MangaWeb.Domain\\MangaWeb.Domain.csproj"
+            "E:\\CeeSuck\\MangaWebApi\\MangaWeb.Domain\\MangaWeb.Domain.csproj": {
+              "projectPath": "E:\\CeeSuck\\MangaWebApi\\MangaWeb.Domain\\MangaWeb.Domain.csproj"
             },
-            "D:\\MangaWebApi\\MangaWeb.Persistence\\MangaWeb.Persistence.csproj": {
-              "projectPath": "D:\\MangaWebApi\\MangaWeb.Persistence\\MangaWeb.Persistence.csproj"
+            "E:\\CeeSuck\\MangaWebApi\\MangaWeb.Persistence\\MangaWeb.Persistence.csproj": {
+              "projectPath": "E:\\CeeSuck\\MangaWebApi\\MangaWeb.Persistence\\MangaWeb.Persistence.csproj"
             }
           }
         }
@@ -5809,15 +5809,15 @@
         "downloadDependencies": [
           {
             "name": "Microsoft.AspNetCore.App.Ref",
-            "version": "[6.0.32, 6.0.32]"
+            "version": "[6.0.33, 6.0.33]"
           },
           {
             "name": "Microsoft.NETCore.App.Ref",
-            "version": "[6.0.32, 6.0.32]"
+            "version": "[6.0.33, 6.0.33]"
           },
           {
             "name": "Microsoft.WindowsDesktop.App.Ref",
-            "version": "[6.0.32, 6.0.32]"
+            "version": "[6.0.33, 6.0.33]"
           }
         ],
         "frameworkReferences": {
@@ -5825,7 +5825,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400\\RuntimeIdentifierGraph.json"
       }
     }
   }

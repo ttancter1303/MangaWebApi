@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 
 namespace MangaWeb.Api.Controllers.Management
 {
+    [ApiController]
+    [Route("api/admin/tags")]
     public class AdminTagsController : AuthorizeController
     {
         private readonly ITagService _tagService;
