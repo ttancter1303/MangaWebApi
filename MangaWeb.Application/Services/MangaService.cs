@@ -6,7 +6,6 @@ using MangaWeb.Domain.Enums;
 using MangaWeb.Domain.Exceptions;
 using MangaWeb.Domain.Models.Mangas;
 
-
 namespace MangaWeb.Application.Services
 {
     public class MangaService : IMangaService
@@ -40,6 +39,11 @@ namespace MangaWeb.Application.Services
 
         public async Task<Guid> CreateMangaAsync(MangaCreateViewModel model)
         {
+            if (model == null)
+            {
+                throw new ArgumentNullException(nameof(model), "MangaCreateViewModel cannot be null.");
+            }
+
             var manga = _mapper.Map<Manga>(model);
             manga.Id = Guid.NewGuid();
             manga.CreatedDate = DateTime.UtcNow;
@@ -53,6 +57,11 @@ namespace MangaWeb.Application.Services
 
         public async Task UpdateMangaAsync(MangaUpdateViewModel model)
         {
+            if (model == null)
+            {
+                throw new ArgumentNullException(nameof(model), "MangaUpdateViewModel cannot be null.");
+            }
+
             var manga = await _mangaRepository.GetByIdAsync(model.Id);
             if (manga == null)
             {
@@ -80,9 +89,13 @@ namespace MangaWeb.Application.Services
 
         public async Task<IEnumerable<MangaViewModel>> SearchMangasAsync(MangaSearchViewModel searchModel)
         {
+            if (searchModel == null || string.IsNullOrWhiteSpace(searchModel.Title))
+            {
+                return Enumerable.Empty<MangaViewModel>();
+            }
+
             var mangas = await _mangaRepository.SearchAsync(searchModel.Title);
             return _mapper.Map<IEnumerable<MangaViewModel>>(mangas);
         }
-
     }
 }

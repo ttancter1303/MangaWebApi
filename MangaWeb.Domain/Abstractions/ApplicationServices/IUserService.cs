@@ -27,6 +27,7 @@ namespace MangaWeb.Domain.Abstractions.ApplicationServices
         Task<ResponseResult> AssignPermissions(AssignPermissionsViewModel model);
 
         Task<PageResult<UserViewModel>> GetUsers(UserSearchQuery query);
+        Task<string?> GetUserNameByIdAsync(Guid userId);
 
         Task<PageResult<RoleViewModel>> GetRoles(RoleSearchQuery query);
 

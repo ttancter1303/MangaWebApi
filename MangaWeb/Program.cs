@@ -5,13 +5,14 @@ using MangaWeb.Api;
 using MangaWeb.Domain.Abstractions.ApplicationServices; 
 using Microsoft.EntityFrameworkCore;
 using MangaWeb.Application.Services;
+using MangaWeb.Application.Mappings;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllers();
 //Đăng ký AutoMapper
-builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+builder.Services.AddAutoMapper(typeof(AutoMapperProfile));
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

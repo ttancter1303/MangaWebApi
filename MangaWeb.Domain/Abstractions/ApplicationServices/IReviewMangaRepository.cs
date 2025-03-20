@@ -14,5 +14,6 @@ namespace MangaWeb.Domain.Abstractions
         Task AddAsync(ReviewManga review);
         Task UpdateAsync(ReviewManga review);
         Task DeleteAsync(ReviewManga review);
+        Task<List<ReviewManga>> GetReviewsByMangaIdAsync(Guid mangaId);
     }
 }

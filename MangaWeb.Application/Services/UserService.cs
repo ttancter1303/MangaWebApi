@@ -94,7 +94,16 @@ namespace MangaWeb.Application.Services
         }
 
 
+        public async Task<string?> GetUserNameByIdAsync(Guid userId)
+        {
+            var user = await _userManager.FindByIdAsync(userId.ToString());
+            if (user == null)
+            {
+                throw new UserException.UserNotFoundException();
+            }
 
+            return user.UserName;
+        }
 
 
         public async Task<UserProfileModel> GetUserProfile(string userName)

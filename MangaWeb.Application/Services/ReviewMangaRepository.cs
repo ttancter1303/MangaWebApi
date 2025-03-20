@@ -46,5 +46,10 @@ namespace MangaWeb.Application.Services
             _context.ReviewMangas.Remove(review);
             await _context.SaveChangesAsync();
         }
+
+        public Task<List<ReviewManga>> GetReviewsByMangaIdAsync(Guid mangaId)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
