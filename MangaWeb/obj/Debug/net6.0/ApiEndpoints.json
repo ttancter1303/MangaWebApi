@@ -286,127 +286,6 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "MangaWeb.Api.Controllers.Public.ImagesController",
-    "Method": "AddImage",
-    "RelativePath": "api/Images",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "image",
-        "Type": "MangaWeb.Domain.Entities.ChapterImage",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "MangaWeb.Api.Controllers.Public.ImagesController",
-    "Method": "GetImages",
-    "RelativePath": "api/Images/{chapterId}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "chapterId",
-        "Type": "System.Guid",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "MangaWeb.Api.Controllers.Public.ImagesController",
-    "Method": "UpdateImage",
-    "RelativePath": "api/Images/{id}",
-    "HttpMethod": "PUT",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Guid",
-        "IsRequired": true
-      },
-      {
-        "Name": "image",
-        "Type": "MangaWeb.Domain.Entities.ChapterImage",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "MangaWeb.Api.Controllers.Public.ImagesController",
-    "Method": "DeleteImage",
-    "RelativePath": "api/Images/{id}",
-    "HttpMethod": "DELETE",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Guid",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "MangaWeb.Api.Controllers.Public.NoAuthController",
-    "Method": "Login",
-    "RelativePath": "api/NoAuth/login",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "model",
-        "Type": "MangaWeb.Domain.Models.Users.LoginViewModel",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "MangaWeb.Domain.Models.Users.AuthorizedResponseModel",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "MangaWeb.Api.Controllers.Public.NoAuthController",
-    "Method": "RegisterUser",
-    "RelativePath": "api/NoAuth/register-customer",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "model",
-        "Type": "MangaWeb.Domain.Models.Users.RegisterUserViewModel",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "MangaWeb.Domain.Models.Commons.ResponseResult",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
     "ContainingType": "MangaWeb.Api.Controllers.Public.PublicMangasController",
     "Method": "GetAllMangas",
     "RelativePath": "api/public/mangas",
@@ -450,6 +329,16 @@
   },
   {
     "ContainingType": "MangaWeb.Api.Controllers.Public.PublicUsersController",
+    "Method": "DebugToken",
+    "RelativePath": "api/public/users/debug-token",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MangaWeb.Api.Controllers.Public.PublicUsersController",
     "Method": "Login",
     "RelativePath": "api/public/users/login",
     "HttpMethod": "POST",
@@ -462,12 +351,22 @@
         "IsRequired": true
       }
     ],
-    "ReturnTypes": []
+    "ReturnTypes": [
+      {
+        "Type": "MangaWeb.Domain.Models.Users.AuthorizedResponseModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
   },
   {
     "ContainingType": "MangaWeb.Api.Controllers.Public.PublicUsersController",
-    "Method": "Register",
-    "RelativePath": "api/public/users/register",
+    "Method": "RegisterUser",
+    "RelativePath": "api/public/users/register-user",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -478,7 +377,17 @@
         "IsRequired": true
       }
     ],
-    "ReturnTypes": []
+    "ReturnTypes": [
+      {
+        "Type": "MangaWeb.Domain.Models.Commons.ResponseResult",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
   },
   {
     "ContainingType": "MangaWeb.Api.Controllers.Public.PublicAuthorsController",

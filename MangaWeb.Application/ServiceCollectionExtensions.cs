@@ -15,6 +15,7 @@ public static class ServiceCollectionExtensions
         //services.AddScoped<IImageService, ImageService>();
         services.AddScoped<IMangaService, MangaService>();
         services.AddScoped<IReviewMangaService, ReviewMangaService>();
+        services.AddScoped<IAuthorService, AuthorService>();
         services.AddScoped<IStorageService, StorageService>();
         services.AddScoped<ITagService, TagService>();
         services.AddScoped<IMangaRepository, MangaRepository>(); 

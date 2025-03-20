@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using System.Security.Claims;
+using System.Text;
 
 namespace MangaWeb.Api;
 
@@ -10,13 +12,15 @@ public static class ServiceCollectionExtensions
     {
         string issuer = configuration["JwtOption:Issuer"];
         string signingKey = configuration["JwtOption:SecretKey"];
-        byte[] signingKeyBytes = System.Text.Encoding.UTF8.GetBytes(signingKey);
 
-        services.AddAuthentication(opt =>
-            {
-                opt.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-                opt.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-            })
+        if (string.IsNullOrEmpty(issuer) || string.IsNullOrEmpty(signingKey))
+        {
+            throw new Exception("JWT configuration is missing!");
+        }
+
+        byte[] signingKeyBytes = Encoding.UTF8.GetBytes(signingKey);
+
+        services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             .AddJwtBearer(options =>
             {
                 options.RequireHttpsMetadata = false;
@@ -32,8 +36,29 @@ public static class ServiceCollectionExtensions
                     ClockSkew = TimeSpan.Zero,
                     IssuerSigningKey = new SymmetricSecurityKey(signingKeyBytes)
                 };
+
+                options.Events = new JwtBearerEvents
+                {
+                    OnMessageReceived = context =>
+                    {
+                        Console.WriteLine($" JWT Event - Token Received: {context.Token}");
+                        return Task.CompletedTask;
+                    },
+                    OnAuthenticationFailed = context =>
+                    {
+                        Console.WriteLine($" JWT Event - Authentication Failed: {context.Exception.Message}");
+                        return Task.CompletedTask;
+                    },
+                    OnTokenValidated = context =>
+                    {
+                        Console.WriteLine($" JWT Event - Token Validated: {context.SecurityToken}");
+                        return Task.CompletedTask;
+                    }
+                };
             });
     }
+
+
 
     public static void AddCORS(this IServiceCollection services)
     {

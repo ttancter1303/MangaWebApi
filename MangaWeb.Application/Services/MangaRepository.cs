@@ -29,7 +29,7 @@ namespace MangaWeb.Application.Services
             return await _context.Mangas.FindAsync(id);
         }
 
-        public async Task<Manga> GetByIdWithDetailsAsync(Guid id)
+        public async Task<Manga?> GetByIdWithDetailsAsync(Guid id)
         {
             return await _context.Mangas
                 .Include(m => m.Author)

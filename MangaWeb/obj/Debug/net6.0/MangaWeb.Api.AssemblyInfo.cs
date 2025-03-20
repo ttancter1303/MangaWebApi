@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MangaWeb.Api")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+587a3ab62c19bab68a5d67a1133fa219527e2899")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+774970be12be66d7ae29dc3bdaae31492fe3d2c7")]
 [assembly: System.Reflection.AssemblyProductAttribute("MangaWeb.Api")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MangaWeb.Api")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

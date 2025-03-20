@@ -21,7 +21,7 @@ public class JwtTokenService : IJwtTokenService
     }
     public string GenerateAccessToken(IEnumerable<Claim> claims)
     {
-        //var key = _configuration["JwtOption:SecretKey"];
+        var key = _configuration["JwtOption:SecretKey"];
         var secretKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_jwtOption.Value.SecretKey));
         var signinCredentials = new SigningCredentials(secretKey, SecurityAlgorithms.HmacSha256);
 

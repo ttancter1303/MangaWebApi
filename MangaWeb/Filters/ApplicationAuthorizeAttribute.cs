@@ -11,8 +11,14 @@ namespace MangaWeb.Api.Filters
     {
         public void OnAuthorization(AuthorizationFilterContext context)
         {
-            var userName = context.HttpContext.User.Claims?
-                        .FirstOrDefault(i => i.Type == "UserName")?.Value ?? string.Empty;
+            var userClaims = context.HttpContext.User.Claims.ToList();
+            Console.WriteLine("User Claims:");
+            foreach (var claim in userClaims)
+            {
+                Console.WriteLine($"Type: {claim.Type}, Value: {claim.Value}");
+            }
+
+            var userName = userClaims.FirstOrDefault(i => i.Type == "UserName")?.Value ?? string.Empty;
 
             if (string.IsNullOrEmpty(userName))
             {
@@ -52,6 +58,8 @@ namespace MangaWeb.Api.Filters
                 throw new UserException.UserNotFoundException();
             }
         }
+
+
 
     }
 }

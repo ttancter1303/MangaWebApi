@@ -14,6 +14,7 @@ using MangaWeb.Domain.Utility;
 
 using MangaWeb.Persistence;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -30,11 +31,13 @@ namespace MangaWeb.Application.Services
         private readonly IJwtTokenService _tokenService;
         private readonly IUnitOfWork _unitOfWork;
         private readonly IConfiguration _configuration;
+        private readonly IHttpContextAccessor _httpContextAccessor;
 
 
         public UserService(UserManager<AppUser> userManager,
             RoleManager<AppRole> roleManager,
             IGenericRepository<Permission, Guid> permissionRepository,
+            IHttpContextAccessor httpContextAccessor,
             IJwtTokenService tokenService, IGenericRepository<RolePermission, Guid> rolePermissionRepository, IUnitOfWork unitOfWork, IConfiguration configuration)
         {
             _userManager = userManager;
@@ -44,6 +47,7 @@ namespace MangaWeb.Application.Services
             _rolePermissionRepository = rolePermissionRepository;
             _unitOfWork = unitOfWork;
             _configuration = configuration;
+            _httpContextAccessor = httpContextAccessor;
         }
 
 
@@ -55,22 +59,43 @@ namespace MangaWeb.Application.Services
             {
                 throw new UserException.UserNotFoundException();
             }
+
             var checkPassword = await _userManager.CheckPasswordAsync(user, model.Password);
             if (!checkPassword)
             {
                 throw new UserException.PasswordNotCorrectException();
             }
 
+            var roles = await _userManager.GetRolesAsync(user);
+
             var claims = new List<Claim>
+        {
+            new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
+            new Claim("UserName", user.UserName),
+            new Claim(ClaimTypes.Email, user.Email)
+        };
+
+            foreach (var role in roles)
             {
-                new("UserName", user.UserName),
-                new(ClaimTypes.Email, user.Email)
+                claims.Add(new Claim(ClaimTypes.Role, role));
+            }
 
-            };
-            var response = new AuthorizedResponseModel() { JwtToken = _tokenService.GenerateAccessToken(claims) };
-            return response;
 
+            var jwtToken = _tokenService.GenerateAccessToken(claims);
+
+            if (_httpContextAccessor.HttpContext != null)
+            {
+                _httpContextAccessor.HttpContext.Items["Token"] = jwtToken;
+            }
+
+            Console.WriteLine($" Token Generated: {jwtToken}");
+
+            return new AuthorizedResponseModel { JwtToken = jwtToken };
         }
+
+
+
+
 
         public async Task<UserProfileModel> GetUserProfile(string userName)
         {
@@ -158,9 +183,9 @@ namespace MangaWeb.Application.Services
 
         #endregion
 
-        #region Customers
+        #region User
 
-        public async Task<ResponseResult> RegisterCustomer(RegisterUserViewModel model)
+        public async Task<ResponseResult> RegisterUser(RegisterUserViewModel model)
         {
             var user = new AppUser()
             {
@@ -599,10 +624,8 @@ namespace MangaWeb.Application.Services
             return false;
         }
 
-        public Task<ResponseResult> RegisterUser(RegisterUserViewModel model)
-        {
-            throw new NotImplementedException();
-        }
+
+
         #endregion
     }
 }
