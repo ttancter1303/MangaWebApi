@@ -589,7 +589,7 @@ namespace MangaWeb.Application.Services
                             Name = CommonConstants.Permissions.DELETE_MANGA_PERMISSION,
                             ParentCode = CommonConstants.Permissions.MANGA_PERMISSION,
                             Index = 5
-                        }
+                        },
                         new Permission()
                         {
                             Id = Guid.NewGuid(),
@@ -627,6 +627,162 @@ namespace MangaWeb.Application.Services
                             Code = CommonConstants.Permissions.DELETE_IMAGE_PERMISSION,
                             Name = CommonConstants.Permissions.DELETE_IMAGE_PERMISSION,
                             ParentCode = CommonConstants.Permissions.IMAGE_PERMISSION,
+                            Index = 5
+                        },
+                        new Permission()
+                        {
+                            Id = Guid.NewGuid(),
+                            Code = CommonConstants.Permissions.CHAPTER_PERMISSION,
+                            Name = CommonConstants.Permissions.CHAPTER_PERMISSION,
+                            Index = 1
+                        },
+                        new Permission()
+                        {
+                            Id = Guid.NewGuid(),
+                            Code = CommonConstants.Permissions.VIEW_CHAPTER_PERMISSION,
+                            Name = CommonConstants.Permissions.VIEW_CHAPTER_PERMISSION,
+                            ParentCode = CommonConstants.Permissions.CHAPTER_PERMISSION,
+                            Index = 2
+                        },
+                        new Permission()
+                        {
+                            Id = Guid.NewGuid(),
+                            Code = CommonConstants.Permissions.ADD_CHAPTER_PERMISSION,
+                            Name = CommonConstants.Permissions.ADD_CHAPTER_PERMISSION,
+                            ParentCode = CommonConstants.Permissions.CHAPTER_PERMISSION,
+                            Index = 3
+                        },
+                        new Permission()
+                        {
+                            Id = Guid.NewGuid(),
+                            Code = CommonConstants.Permissions.UPDATE_CHAPTER_PERMISSION,
+                            Name = CommonConstants.Permissions.UPDATE_CHAPTER_PERMISSION,
+                            ParentCode = CommonConstants.Permissions.CHAPTER_PERMISSION,
+                            Index = 4
+                        },
+                        new Permission()
+                        {
+                            Id = Guid.NewGuid(),
+                            Code = CommonConstants.Permissions.DELETE_CHAPTER_PERMISSION,
+                            Name = CommonConstants.Permissions.DELETE_CHAPTER_PERMISSION,
+                            ParentCode = CommonConstants.Permissions.CHAPTER_PERMISSION,
+                            Index = 5
+                        },
+                        new Permission()
+                        {
+                            Id = Guid.NewGuid(),
+                            Code = CommonConstants.Permissions.AUTHOR_PERMISSION,
+                            Name = CommonConstants.Permissions.AUTHOR_PERMISSION,
+                            Index = 1
+                        },
+                        new Permission()
+                        {
+                            Id = Guid.NewGuid(),
+                            Code = CommonConstants.Permissions.VIEW_AUTHOR_PERMISSION,
+                            Name = CommonConstants.Permissions.VIEW_AUTHOR_PERMISSION,
+                            ParentCode = CommonConstants.Permissions.AUTHOR_PERMISSION,
+                            Index = 2
+                        },
+                        new Permission()
+                        {
+                            Id = Guid.NewGuid(),
+                            Code = CommonConstants.Permissions.ADD_AUTHOR_PERMISSION,
+                            Name = CommonConstants.Permissions.ADD_AUTHOR_PERMISSION,
+                            ParentCode = CommonConstants.Permissions.AUTHOR_PERMISSION,
+                            Index = 3
+                        },
+                        new Permission()
+                        {
+                            Id = Guid.NewGuid(),
+                            Code = CommonConstants.Permissions.UPDATE_AUTHOR_PERMISSION,
+                            Name = CommonConstants.Permissions.UPDATE_AUTHOR_PERMISSION,
+                            ParentCode = CommonConstants.Permissions.AUTHOR_PERMISSION,
+                            Index = 4
+                        },
+                        new Permission()
+                        {
+                            Id = Guid.NewGuid(),
+                            Code = CommonConstants.Permissions.DELETE_AUTHOR_PERMISSION,
+                            Name = CommonConstants.Permissions.DELETE_AUTHOR_PERMISSION,
+                            ParentCode = CommonConstants.Permissions.AUTHOR_PERMISSION,
+                            Index = 5
+                        },
+                        new Permission()
+                        {
+                            Id = Guid.NewGuid(),
+                            Code = CommonConstants.Permissions.TAG_PERMISSION,
+                            Name = CommonConstants.Permissions.TAG_PERMISSION,
+                            Index = 1
+                        },
+                        new Permission()
+                        {
+                            Id = Guid.NewGuid(),
+                            Code = CommonConstants.Permissions.VIEW_TAG_PERMISSION,
+                            Name = CommonConstants.Permissions.VIEW_TAG_PERMISSION,
+                            ParentCode = CommonConstants.Permissions.TAG_PERMISSION,
+                            Index = 2
+                        },
+                        new Permission()
+                        {
+                            Id = Guid.NewGuid(),
+                            Code = CommonConstants.Permissions.ADD_TAG_PERMISSION,
+                            Name = CommonConstants.Permissions.ADD_TAG_PERMISSION,
+                            ParentCode = CommonConstants.Permissions.TAG_PERMISSION,
+                            Index = 3
+                        },
+                        new Permission()
+                        {
+                            Id = Guid.NewGuid(),
+                            Code = CommonConstants.Permissions.UPDATE_TAG_PERMISSION,
+                            Name = CommonConstants.Permissions.UPDATE_TAG_PERMISSION,
+                            ParentCode = CommonConstants.Permissions.TAG_PERMISSION,
+                            Index = 4
+                        },
+                        new Permission()
+                        {
+                            Id = Guid.NewGuid(),
+                            Code = CommonConstants.Permissions.DELETE_TAG_PERMISSION,
+                            Name = CommonConstants.Permissions.DELETE_TAG_PERMISSION,
+                            ParentCode = CommonConstants.Permissions.TAG_PERMISSION,
+                            Index = 5
+                        },
+                        new Permission()
+                        {
+                            Id = Guid.NewGuid(),
+                            Code = CommonConstants.Permissions.REVIEW_PERMISSION,
+                            Name = CommonConstants.Permissions.REVIEW_PERMISSION,
+                            Index = 1
+                        },
+                        new Permission()
+                        {
+                            Id = Guid.NewGuid(),
+                            Code = CommonConstants.Permissions.VIEW_REVIEW_PERMISSION,
+                            Name = CommonConstants.Permissions.VIEW_REVIEW_PERMISSION,
+                            ParentCode = CommonConstants.Permissions.REVIEW_PERMISSION,
+                            Index = 2
+                        },
+                        new Permission()
+                        {
+                            Id = Guid.NewGuid(),
+                            Code = CommonConstants.Permissions.ADD_REVIEW_PERMISSION,
+                            Name = CommonConstants.Permissions.ADD_REVIEW_PERMISSION,
+                            ParentCode = CommonConstants.Permissions.REVIEW_PERMISSION,
+                            Index = 3
+                        },
+                        new Permission()
+                        {
+                            Id = Guid.NewGuid(),
+                            Code = CommonConstants.Permissions.UPDATE_REVIEW_PERMISSION,
+                            Name = CommonConstants.Permissions.UPDATE_REVIEW_PERMISSION,
+                            ParentCode = CommonConstants.Permissions.REVIEW_PERMISSION,
+                            Index = 4
+                        },
+                        new Permission()
+                        {
+                            Id = Guid.NewGuid(),
+                            Code = CommonConstants.Permissions.DELETE_REVIEW_PERMISSION,
+                            Name = CommonConstants.Permissions.DELETE_REVIEW_PERMISSION,
+                            ParentCode = CommonConstants.Permissions.REVIEW_PERMISSION,
                             Index = 5
                         }
                     };
