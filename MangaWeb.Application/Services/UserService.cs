@@ -590,6 +590,45 @@ namespace MangaWeb.Application.Services
                             ParentCode = CommonConstants.Permissions.MANGA_PERMISSION,
                             Index = 5
                         }
+                        new Permission()
+                        {
+                            Id = Guid.NewGuid(),
+                            Code = CommonConstants.Permissions.IMAGE_PERMISSION,
+                            Name = CommonConstants.Permissions.IMAGE_PERMISSION,
+                            Index = 1
+                        },
+                        new Permission()
+                        {
+                            Id = Guid.NewGuid(),
+                            Code = CommonConstants.Permissions.VIEW_IMAGE_PERMISSION,
+                            Name = CommonConstants.Permissions.VIEW_IMAGE_PERMISSION,
+                            ParentCode = CommonConstants.Permissions.IMAGE_PERMISSION,
+                            Index = 2
+                        },
+                        new Permission()
+                        {
+                            Id = Guid.NewGuid(),
+                            Code = CommonConstants.Permissions.ADD_IMAGE_PERMISSION,
+                            Name = CommonConstants.Permissions.ADD_IMAGE_PERMISSION,
+                            ParentCode = CommonConstants.Permissions.IMAGE_PERMISSION,
+                            Index = 3
+                        },
+                        new Permission()
+                        {
+                            Id = Guid.NewGuid(),
+                            Code = CommonConstants.Permissions.UPDATE_IMAGE_PERMISSION,
+                            Name = CommonConstants.Permissions.UPDATE_IMAGE_PERMISSION,
+                            ParentCode = CommonConstants.Permissions.IMAGE_PERMISSION,
+                            Index = 4
+                        },
+                        new Permission()
+                        {
+                            Id = Guid.NewGuid(),
+                            Code = CommonConstants.Permissions.DELETE_IMAGE_PERMISSION,
+                            Name = CommonConstants.Permissions.DELETE_IMAGE_PERMISSION,
+                            ParentCode = CommonConstants.Permissions.IMAGE_PERMISSION,
+                            Index = 5
+                        }
                     };
 
 

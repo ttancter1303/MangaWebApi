@@ -16,25 +16,38 @@ namespace MangaWeb.Api.Filters
         }
         public void OnAuthorization(AuthorizationFilterContext context)
         {
-            var currentUser = HelperUtility.GetValueHeader<UserProfileModel>(context.HttpContext.Request,CommonConstants.Header.CurrentUser);
-            var userPermissions = currentUser?.Permissions;
+            var currentUser = HelperUtility.GetValueHeader<UserProfileModel>(
+                context.HttpContext.Request, CommonConstants.Header.CurrentUser
+            );
 
-            if (userPermissions == null)
+            if (currentUser == null)
             {
+                Console.WriteLine("Không tìm thấy thông tin người dùng trong request header.");
                 throw new UserException.ForbiddenException();
             }
-            else
+
+            Console.WriteLine($"User ID: {currentUser.UserId}");
+            Console.WriteLine($"Permissions: {string.Join(", ", currentUser.Permissions ?? new List<string>())}");
+
+            var userPermissions = currentUser.Permissions;
+
+            if (userPermissions == null || !userPermissions.Any())
             {
-                foreach (var permission in _permissions)
+                Console.WriteLine("User không có quyền nào.");
+                throw new UserException.ForbiddenException();
+            }
+
+            foreach (var permission in _permissions)
+            {
+                if (!userPermissions.Any(s => s.Equals(permission, StringComparison.OrdinalIgnoreCase)))
                 {
-                    if (!userPermissions.Any(s => s.Equals(permission, StringComparison.OrdinalIgnoreCase)))
-                    {
-                        throw new UserException.ForbiddenException();
-                    }
+                    Console.WriteLine($"User thiếu quyền: {permission}");
+                    throw new UserException.ForbiddenException();
                 }
             }
         }
-       
+
+
     }
 
 }
