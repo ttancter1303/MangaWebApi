@@ -709,6 +709,32 @@
     ]
   },
   {
+    "ContainingType": "MangaWeb.Api.Controllers.Management.AdminImageController",
+    "Method": "DeleteImage",
+    "RelativePath": "delete-image",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "imageId",
+        "Type": "System.Guid",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "MangaWeb.Domain.Models.Commons.ResponseResult",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
     "ContainingType": "MangaWeb.Api.Controllers.Management.AccountController",
     "Method": "DeletRole",
     "RelativePath": "delete-role",
@@ -911,6 +937,37 @@
     ]
   },
   {
+    "ContainingType": "MangaWeb.Api.Controllers.Management.AdminImageController",
+    "Method": "UpdateImage",
+    "RelativePath": "update-image",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "ImageId",
+        "Type": "System.Guid",
+        "IsRequired": false
+      },
+      {
+        "Name": "ImageName",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "MangaWeb.Domain.Models.Commons.ResponseResult",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
     "ContainingType": "MangaWeb.Api.Controllers.Management.AccountController",
     "Method": "UpdateUserInfo",
     "RelativePath": "update-info",
@@ -974,6 +1031,32 @@
         "Name": "model",
         "Type": "MangaWeb.Domain.Models.Users.UpdateRoleViewModel",
         "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "MangaWeb.Domain.Models.Commons.ResponseResult",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "MangaWeb.Api.Controllers.Management.AdminImageController",
+    "Method": "UploadImages",
+    "RelativePath": "upload-images",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Images",
+        "Type": "System.Collections.Generic.List\u00601[[Microsoft.AspNetCore.Http.IFormFile, Microsoft.AspNetCore.Http.Features, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60]]",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": [

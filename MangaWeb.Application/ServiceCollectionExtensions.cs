@@ -12,7 +12,7 @@ public static class ServiceCollectionExtensions
         services.AddScoped<IChapterRepository, ChapterRepository>();
         services.AddScoped<IChapterService, ChapterService>();
 
-        //services.AddScoped<IImageService, ImageService>();
+        services.AddScoped<IImageService, ImageService>();
         services.AddScoped<IMangaService, MangaService>();
         services.AddScoped<IReviewMangaService, ReviewMangaService>();
         services.AddScoped<IAuthorService, AuthorService>();

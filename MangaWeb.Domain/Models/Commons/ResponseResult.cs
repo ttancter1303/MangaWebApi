@@ -6,6 +6,8 @@ namespace MangaWeb.Domain.Models.Commons
     {
         public int StatusCode { get; set; }
         public string Message { get; set; }
+
+
         public static ResponseResult Success(string message = null)
         {
             return new ResponseResult(StatusCodes.Status200OK, message);
