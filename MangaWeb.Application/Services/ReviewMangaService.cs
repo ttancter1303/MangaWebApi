@@ -21,18 +21,25 @@ namespace MangaWeb.Application.Services
             IReviewMangaRepository reviewRepository,
             IUnitOfWork unitOfWork,
             IMapper mapper,
-            IUserService userService)  
+            IUserService userService)
         {
             _reviewRepository = reviewRepository;
             _unitOfWork = unitOfWork;
             _mapper = mapper;
-            _userService = userService;  // ✅ Gán _userService
+            _userService = userService;
         }
 
-        public async Task<IEnumerable<ReviewMangaViewModel>> GetAllReviewsAsync()
+        public async Task<IEnumerable<ReviewMangaDetailViewModel>> GetAllReviewsAsync()
         {
             var reviews = await _reviewRepository.GetAllAsync();
-            return _mapper.Map<IEnumerable<ReviewMangaViewModel>>(reviews);
+            var reviewList = _mapper.Map<IEnumerable<ReviewMangaDetailViewModel>>(reviews);
+
+            foreach (var review in reviewList)
+            {
+                review.UserName = await _userService.GetUserNameByIdAsync(review.UserId);
+            }
+
+            return reviewList;
         }
 
         public async Task<ReviewMangaDetailViewModel> GetReviewByIdAsync(Guid id)
@@ -44,7 +51,7 @@ namespace MangaWeb.Application.Services
             }
 
             var reviewDetail = _mapper.Map<ReviewMangaDetailViewModel>(review);
-            reviewDetail.UserName = await _userService.GetUserNameByIdAsync(review.UserId);  
+            reviewDetail.UserName = await _userService.GetUserNameByIdAsync(review.UserId);
 
             return reviewDetail;
         }
@@ -52,21 +59,32 @@ namespace MangaWeb.Application.Services
         public async Task<IEnumerable<ReviewMangaDetailViewModel>> GetReviewsByMangaIdAsync(Guid mangaId)
         {
             var reviews = await _reviewRepository.GetReviewsByMangaIdAsync(mangaId);
-            return _mapper.Map<IEnumerable<ReviewMangaDetailViewModel>>(reviews);
+            var reviewList = _mapper.Map<IEnumerable<ReviewMangaDetailViewModel>>(reviews);
+
+            foreach (var review in reviewList)
+            {
+                review.UserName = await _userService.GetUserNameByIdAsync(review.UserId);
+            }
+
+            return reviewList;
         }
 
-        public async Task<ReviewMangaViewModel> CreateReviewAsync(ReviewMangaCreateViewModel reviewModel)
+        public async Task<ReviewMangaDetailViewModel> CreateReviewAsync(ReviewMangaCreateViewModel reviewModel)
         {
             var review = _mapper.Map<ReviewManga>(reviewModel);
             await _reviewRepository.AddAsync(review);
             await _unitOfWork.SaveChangesAsync();
-            return _mapper.Map<ReviewMangaViewModel>(review);
+
+            var createdReview = _mapper.Map<ReviewMangaDetailViewModel>(review);
+            createdReview.UserName = await _userService.GetUserNameByIdAsync(review.UserId);
+
+            return createdReview;
         }
 
         public async Task UpdateReviewAsync(ReviewMangaUpdateViewModel reviewModel)
         {
             var review = await _reviewRepository.GetByIdAsync(reviewModel.Id);
-            if (review == null) throw new ReviewNotFoundException(reviewModel.Id);  
+            if (review == null) throw new ReviewNotFoundException(reviewModel.Id);
 
             _mapper.Map(reviewModel, review);
             await _reviewRepository.UpdateAsync(review);
@@ -76,20 +94,10 @@ namespace MangaWeb.Application.Services
         public async Task DeleteReviewAsync(Guid id)
         {
             var review = await _reviewRepository.GetByIdAsync(id);
-            if (review == null) throw new ReviewNotFoundException(id);  
+            if (review == null) throw new ReviewNotFoundException(id);
 
             await _reviewRepository.DeleteAsync(review);
             await _unitOfWork.SaveChangesAsync();
-        }
-
-        Task<IEnumerable<ReviewMangaDetailViewModel>> IReviewMangaService.GetAllReviewsAsync()
-        {
-            throw new NotImplementedException();
-        }
-
-        Task<ReviewMangaDetailViewModel> IReviewMangaService.CreateReviewAsync(ReviewMangaCreateViewModel review)
-        {
-            throw new NotImplementedException();
         }
     }
 }

@@ -9,16 +9,16 @@ namespace MangaWeb.Domain.Models.Chapters
 {
     public class ChapterCreateViewModel
     {
-        [Required]
+
         public string Title { get; set; }
 
-        [Required]
+
         public int ChapterNumber { get; set; }
 
-        [Required]
+
         public Guid MangaId { get; set; }
 
-        [Required]
+
         public List<string> ImageUrls { get; set; } = new(); 
 
     }

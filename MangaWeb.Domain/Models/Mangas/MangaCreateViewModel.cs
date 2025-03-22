@@ -6,8 +6,7 @@ namespace MangaWeb.Domain.Models.Mangas
 {
     public class MangaCreateViewModel
     {
-        [Required]
-        [StringLength(1000)]
+
         public string Title { get; set; }
 
         public string? Description { get; set; }
