@@ -1,0 +1,89 @@
+{
+  "Files": [
+    {
+      "Id": "E:\\CeeSharp\\MangaWebApi\\MangaWeb\\wwwroot\\generalImages\\1385d5f1-5cea-4dd4-8ff4-b29a8d74fcbd-0c662a201941d4a424d2ea1411810911.jpg",
+      "PackagePath": "staticwebassets\\generalImages\\1385d5f1-5cea-4dd4-8ff4-b29a8d74fcbd-0c662a201941d4a424d2ea1411810911.jpg"
+    },
+    {
+      "Id": "E:\\CeeSharp\\MangaWebApi\\MangaWeb\\wwwroot\\generalImages\\1cf79b92-16b0-4b3f-b4bb-340d0149aad1-0c662a201941d4a424d2ea1411810911.jpg",
+      "PackagePath": "staticwebassets\\generalImages\\1cf79b92-16b0-4b3f-b4bb-340d0149aad1-0c662a201941d4a424d2ea1411810911.jpg"
+    },
+    {
+      "Id": "E:\\CeeSharp\\MangaWebApi\\MangaWeb\\wwwroot\\generalImages\\1d090056-0d50-4e00-9b18-120d9de86905-0c662a201941d4a424d2ea1411810911.jpg",
+      "PackagePath": "staticwebassets\\generalImages\\1d090056-0d50-4e00-9b18-120d9de86905-0c662a201941d4a424d2ea1411810911.jpg"
+    },
+    {
+      "Id": "E:\\CeeSharp\\MangaWebApi\\MangaWeb\\wwwroot\\generalImages\\1f0c0f04-5020-47b1-ad94-9bf3dd717a12-0c662a201941d4a424d2ea1411810911.jpg",
+      "PackagePath": "staticwebassets\\generalImages\\1f0c0f04-5020-47b1-ad94-9bf3dd717a12-0c662a201941d4a424d2ea1411810911.jpg"
+    },
+    {
+      "Id": "E:\\CeeSharp\\MangaWebApi\\MangaWeb\\wwwroot\\generalImages\\2d7d7455-73eb-4ce6-8063-69069b7efdc7-2e33e961ba6a9be8c559fb311edfeac4.jpg",
+      "PackagePath": "staticwebassets\\generalImages\\2d7d7455-73eb-4ce6-8063-69069b7efdc7-2e33e961ba6a9be8c559fb311edfeac4.jpg"
+    },
+    {
+      "Id": "E:\\CeeSharp\\MangaWebApi\\MangaWeb\\wwwroot\\generalImages\\3c58ae81-aec5-4b7b-9287-ac9b9edb21b5-0c662a201941d4a424d2ea1411810911.jpg",
+      "PackagePath": "staticwebassets\\generalImages\\3c58ae81-aec5-4b7b-9287-ac9b9edb21b5-0c662a201941d4a424d2ea1411810911.jpg"
+    },
+    {
+      "Id": "E:\\CeeSharp\\MangaWebApi\\MangaWeb\\wwwroot\\generalImages\\47f6672b-9480-4147-879a-493e0f7b43c5-0c662a201941d4a424d2ea1411810911.jpg",
+      "PackagePath": "staticwebassets\\generalImages\\47f6672b-9480-4147-879a-493e0f7b43c5-0c662a201941d4a424d2ea1411810911.jpg"
+    },
+    {
+      "Id": "E:\\CeeSharp\\MangaWebApi\\MangaWeb\\wwwroot\\generalImages\\49119191-13ae-44f4-b4ae-61e4f724c425-0c662a201941d4a424d2ea1411810911.jpg",
+      "PackagePath": "staticwebassets\\generalImages\\49119191-13ae-44f4-b4ae-61e4f724c425-0c662a201941d4a424d2ea1411810911.jpg"
+    },
+    {
+      "Id": "E:\\CeeSharp\\MangaWebApi\\MangaWeb\\wwwroot\\generalImages\\545df560-0c1b-41c9-96d4-629082f776d9-0c662a201941d4a424d2ea1411810911.jpg",
+      "PackagePath": "staticwebassets\\generalImages\\545df560-0c1b-41c9-96d4-629082f776d9-0c662a201941d4a424d2ea1411810911.jpg"
+    },
+    {
+      "Id": "E:\\CeeSharp\\MangaWebApi\\MangaWeb\\wwwroot\\generalImages\\5976dac4-1078-4f6b-9d0c-a44aa6afa1d9-0c662a201941d4a424d2ea1411810911.jpg",
+      "PackagePath": "staticwebassets\\generalImages\\5976dac4-1078-4f6b-9d0c-a44aa6afa1d9-0c662a201941d4a424d2ea1411810911.jpg"
+    },
+    {
+      "Id": "E:\\CeeSharp\\MangaWebApi\\MangaWeb\\wwwroot\\generalImages\\875434e0-1d12-4731-95e2-7886b7e45f65-0c662a201941d4a424d2ea1411810911.jpg",
+      "PackagePath": "staticwebassets\\generalImages\\875434e0-1d12-4731-95e2-7886b7e45f65-0c662a201941d4a424d2ea1411810911.jpg"
+    },
+    {
+      "Id": "E:\\CeeSharp\\MangaWebApi\\MangaWeb\\wwwroot\\generalImages\\b5817451-231f-4720-a92e-25477779152b-0c662a201941d4a424d2ea1411810911.jpg",
+      "PackagePath": "staticwebassets\\generalImages\\b5817451-231f-4720-a92e-25477779152b-0c662a201941d4a424d2ea1411810911.jpg"
+    },
+    {
+      "Id": "E:\\CeeSharp\\MangaWebApi\\MangaWeb\\wwwroot\\generalImages\\c22042d1-d5c8-4215-861c-552d53ef65c3-2e33e961ba6a9be8c559fb311edfeac4.jpg",
+      "PackagePath": "staticwebassets\\generalImages\\c22042d1-d5c8-4215-861c-552d53ef65c3-2e33e961ba6a9be8c559fb311edfeac4.jpg"
+    },
+    {
+      "Id": "E:\\CeeSharp\\MangaWebApi\\MangaWeb\\wwwroot\\generalImages\\e636915a-a85f-4198-a782-3e2aeb08981a-0c662a201941d4a424d2ea1411810911.jpg",
+      "PackagePath": "staticwebassets\\generalImages\\e636915a-a85f-4198-a782-3e2aeb08981a-0c662a201941d4a424d2ea1411810911.jpg"
+    },
+    {
+      "Id": "E:\\CeeSharp\\MangaWebApi\\MangaWeb\\wwwroot\\generalImages\\f324d21f-94ce-4dae-8119-397abc85746b-0ca9593a8bcef01398b845fbb72e7f19.jpg",
+      "PackagePath": "staticwebassets\\generalImages\\f324d21f-94ce-4dae-8119-397abc85746b-0ca9593a8bcef01398b845fbb72e7f19.jpg"
+    },
+    {
+      "Id": "E:\\CeeSharp\\MangaWebApi\\MangaWeb\\wwwroot\\generalImages\\f9e6819e-4b40-4e9a-802b-9ee0b78f77b0-0c662a201941d4a424d2ea1411810911.jpg",
+      "PackagePath": "staticwebassets\\generalImages\\f9e6819e-4b40-4e9a-802b-9ee0b78f77b0-0c662a201941d4a424d2ea1411810911.jpg"
+    },
+    {
+      "Id": "E:\\CeeSharp\\MangaWebApi\\MangaWeb\\wwwroot\\generalImages\\fde7ea71-9998-4d9b-bafc-76a2ce6385b2-2e33e961ba6a9be8c559fb311edfeac4.jpg",
+      "PackagePath": "staticwebassets\\generalImages\\fde7ea71-9998-4d9b-bafc-76a2ce6385b2-2e33e961ba6a9be8c559fb311edfeac4.jpg"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.MangaWeb.Api.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.build.MangaWeb.Api.props",
+      "PackagePath": "build\\MangaWeb.Api.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.buildMultiTargeting.MangaWeb.Api.props",
+      "PackagePath": "buildMultiTargeting\\MangaWeb.Api.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.buildTransitive.MangaWeb.Api.props",
+      "PackagePath": "buildTransitive\\MangaWeb.Api.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

@@ -30,3 +30,16 @@ D:\MangaWebApi\MangaWeb.Domain\obj\Debug\net6.0\MangaWeb.Domain.dll
 D:\MangaWebApi\MangaWeb.Domain\obj\Debug\net6.0\refint\MangaWeb.Domain.dll
 D:\MangaWebApi\MangaWeb.Domain\obj\Debug\net6.0\MangaWeb.Domain.pdb
 D:\MangaWebApi\MangaWeb.Domain\obj\Debug\net6.0\ref\MangaWeb.Domain.dll
+E:\CeeSharp\MangaWebApi\MangaWeb.Domain\bin\Debug\net6.0\MangaWeb.Domain.deps.json
+E:\CeeSharp\MangaWebApi\MangaWeb.Domain\bin\Debug\net6.0\MangaWeb.Domain.dll
+E:\CeeSharp\MangaWebApi\MangaWeb.Domain\bin\Debug\net6.0\MangaWeb.Domain.pdb
+E:\CeeSharp\MangaWebApi\MangaWeb.Domain\obj\Debug\net6.0\MangaWeb.Domain.csproj.AssemblyReference.cache
+E:\CeeSharp\MangaWebApi\MangaWeb.Domain\obj\Debug\net6.0\MangaWeb.Domain.GeneratedMSBuildEditorConfig.editorconfig
+E:\CeeSharp\MangaWebApi\MangaWeb.Domain\obj\Debug\net6.0\MangaWeb.Domain.AssemblyInfoInputs.cache
+E:\CeeSharp\MangaWebApi\MangaWeb.Domain\obj\Debug\net6.0\MangaWeb.Domain.AssemblyInfo.cs
+E:\CeeSharp\MangaWebApi\MangaWeb.Domain\obj\Debug\net6.0\MangaWeb.Domain.csproj.CoreCompileInputs.cache
+E:\CeeSharp\MangaWebApi\MangaWeb.Domain\obj\Debug\net6.0\MangaWeb.Domain.sourcelink.json
+E:\CeeSharp\MangaWebApi\MangaWeb.Domain\obj\Debug\net6.0\MangaWeb.Domain.dll
+E:\CeeSharp\MangaWebApi\MangaWeb.Domain\obj\Debug\net6.0\refint\MangaWeb.Domain.dll
+E:\CeeSharp\MangaWebApi\MangaWeb.Domain\obj\Debug\net6.0\MangaWeb.Domain.pdb
+E:\CeeSharp\MangaWebApi\MangaWeb.Domain\obj\Debug\net6.0\ref\MangaWeb.Domain.dll

@@ -15,4 +15,8 @@
     <ProjectReference Include="..\MangaWeb.Domain\MangaWeb.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Migrations\" />
+  </ItemGroup>
+
 </Project>

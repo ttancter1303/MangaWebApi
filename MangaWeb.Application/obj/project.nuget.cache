@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "F+74cR8o290=",
+  "dgSpecHash": "Sz7UsSqppT4=",
   "success": true,
-  "projectFilePath": "E:\\CeeSuck\\MangaWebApi\\MangaWeb.Application\\MangaWeb.Application.csproj",
+  "projectFilePath": "E:\\CeeSharp\\MangaWebApi\\MangaWeb.Application\\MangaWeb.Application.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\01689\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\01689\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",

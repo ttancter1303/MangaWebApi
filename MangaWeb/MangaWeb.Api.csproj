@@ -23,4 +23,8 @@
 		<ProjectReference Include="..\MangaWeb.Persistence\MangaWeb.Persistence.csproj" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <Folder Include="wwwroot\" />
+	</ItemGroup>
+
 </Project>

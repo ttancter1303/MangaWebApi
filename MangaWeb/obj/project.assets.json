@@ -6065,11 +6065,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\CeeSuck\\MangaWebApi\\MangaWeb\\MangaWeb.Api.csproj",
+      "projectUniqueName": "E:\\CeeSharp\\MangaWebApi\\MangaWeb\\MangaWeb.Api.csproj",
       "projectName": "MangaWeb.Api",
-      "projectPath": "E:\\CeeSuck\\MangaWebApi\\MangaWeb\\MangaWeb.Api.csproj",
+      "projectPath": "E:\\CeeSharp\\MangaWebApi\\MangaWeb\\MangaWeb.Api.csproj",
       "packagesPath": "C:\\Users\\01689\\.nuget\\packages\\",
-      "outputPath": "E:\\CeeSuck\\MangaWebApi\\MangaWeb\\obj\\",
+      "outputPath": "E:\\CeeSharp\\MangaWebApi\\MangaWeb\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\01689\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -6087,17 +6087,17 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "E:\\CeeSuck\\MangaWebApi\\MangaWeb.Application\\MangaWeb.Application.csproj": {
-              "projectPath": "E:\\CeeSuck\\MangaWebApi\\MangaWeb.Application\\MangaWeb.Application.csproj"
+            "E:\\CeeSharp\\MangaWebApi\\MangaWeb.Application\\MangaWeb.Application.csproj": {
+              "projectPath": "E:\\CeeSharp\\MangaWebApi\\MangaWeb.Application\\MangaWeb.Application.csproj"
             },
-            "E:\\CeeSuck\\MangaWebApi\\MangaWeb.Domain\\MangaWeb.Domain.csproj": {
-              "projectPath": "E:\\CeeSuck\\MangaWebApi\\MangaWeb.Domain\\MangaWeb.Domain.csproj"
+            "E:\\CeeSharp\\MangaWebApi\\MangaWeb.Domain\\MangaWeb.Domain.csproj": {
+              "projectPath": "E:\\CeeSharp\\MangaWebApi\\MangaWeb.Domain\\MangaWeb.Domain.csproj"
             },
-            "E:\\CeeSuck\\MangaWebApi\\MangaWeb.Infrastructure\\MangaWeb.Infrastructure.csproj": {
-              "projectPath": "E:\\CeeSuck\\MangaWebApi\\MangaWeb.Infrastructure\\MangaWeb.Infrastructure.csproj"
+            "E:\\CeeSharp\\MangaWebApi\\MangaWeb.Infrastructure\\MangaWeb.Infrastructure.csproj": {
+              "projectPath": "E:\\CeeSharp\\MangaWebApi\\MangaWeb.Infrastructure\\MangaWeb.Infrastructure.csproj"
             },
-            "E:\\CeeSuck\\MangaWebApi\\MangaWeb.Persistence\\MangaWeb.Persistence.csproj": {
-              "projectPath": "E:\\CeeSuck\\MangaWebApi\\MangaWeb.Persistence\\MangaWeb.Persistence.csproj"
+            "E:\\CeeSharp\\MangaWebApi\\MangaWeb.Persistence\\MangaWeb.Persistence.csproj": {
+              "projectPath": "E:\\CeeSharp\\MangaWebApi\\MangaWeb.Persistence\\MangaWeb.Persistence.csproj"
             }
           }
         }

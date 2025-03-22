@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\CeeSuck\\MangaWebApi\\MangaWeb.Domain\\MangaWeb.Domain.csproj": {}
+    "E:\\CeeSharp\\MangaWebApi\\MangaWeb.Domain\\MangaWeb.Domain.csproj": {}
   },
   "projects": {
-    "E:\\CeeSuck\\MangaWebApi\\MangaWeb.Domain\\MangaWeb.Domain.csproj": {
+    "E:\\CeeSharp\\MangaWebApi\\MangaWeb.Domain\\MangaWeb.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\CeeSuck\\MangaWebApi\\MangaWeb.Domain\\MangaWeb.Domain.csproj",
+        "projectUniqueName": "E:\\CeeSharp\\MangaWebApi\\MangaWeb.Domain\\MangaWeb.Domain.csproj",
         "projectName": "MangaWeb.Domain",
-        "projectPath": "E:\\CeeSuck\\MangaWebApi\\MangaWeb.Domain\\MangaWeb.Domain.csproj",
+        "projectPath": "E:\\CeeSharp\\MangaWebApi\\MangaWeb.Domain\\MangaWeb.Domain.csproj",
         "packagesPath": "C:\\Users\\01689\\.nuget\\packages\\",
-        "outputPath": "E:\\CeeSuck\\MangaWebApi\\MangaWeb.Domain\\obj\\",
+        "outputPath": "E:\\CeeSharp\\MangaWebApi\\MangaWeb.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\01689\\AppData\\Roaming\\NuGet\\NuGet.Config",
