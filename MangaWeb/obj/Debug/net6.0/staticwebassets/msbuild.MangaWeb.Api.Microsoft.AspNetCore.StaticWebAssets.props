@@ -1,11 +1,11 @@
 ﻿<Project>
   <ItemGroup>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\generalImages\1385d5f1-5cea-4dd4-8ff4-b29a8d74fcbd-0c662a201941d4a424d2ea1411810911.jpg))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\generalImages\35ff7ae0-9c47-4c41-9042-a23aa75f4445-0c662a201941d4a424d2ea1411810911.jpg))">
       <SourceType>Package</SourceType>
       <SourceId>MangaWeb.Api</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
       <BasePath>_content/MangaWeb.Api</BasePath>
-      <RelativePath>generalImages/1385d5f1-5cea-4dd4-8ff4-b29a8d74fcbd-0c662a201941d4a424d2ea1411810911.jpg</RelativePath>
+      <RelativePath>generalImages/35ff7ae0-9c47-4c41-9042-a23aa75f4445-0c662a201941d4a424d2ea1411810911.jpg</RelativePath>
       <AssetKind>All</AssetKind>
       <AssetMode>All</AssetMode>
       <AssetRole>Primary</AssetRole>
@@ -14,14 +14,14 @@
       <AssetTraitValue></AssetTraitValue>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\generalImages\1385d5f1-5cea-4dd4-8ff4-b29a8d74fcbd-0c662a201941d4a424d2ea1411810911.jpg))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\generalImages\35ff7ae0-9c47-4c41-9042-a23aa75f4445-0c662a201941d4a424d2ea1411810911.jpg))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\generalImages\1cf79b92-16b0-4b3f-b4bb-340d0149aad1-0c662a201941d4a424d2ea1411810911.jpg))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\generalImages\678e4a77-9779-4ce7-b3ed-625650079adf-2e33e961ba6a9be8c559fb311edfeac4.jpg))">
       <SourceType>Package</SourceType>
       <SourceId>MangaWeb.Api</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
       <BasePath>_content/MangaWeb.Api</BasePath>
-      <RelativePath>generalImages/1cf79b92-16b0-4b3f-b4bb-340d0149aad1-0c662a201941d4a424d2ea1411810911.jpg</RelativePath>
+      <RelativePath>generalImages/678e4a77-9779-4ce7-b3ed-625650079adf-2e33e961ba6a9be8c559fb311edfeac4.jpg</RelativePath>
       <AssetKind>All</AssetKind>
       <AssetMode>All</AssetMode>
       <AssetRole>Primary</AssetRole>
@@ -30,14 +30,14 @@
       <AssetTraitValue></AssetTraitValue>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\generalImages\1cf79b92-16b0-4b3f-b4bb-340d0149aad1-0c662a201941d4a424d2ea1411810911.jpg))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\generalImages\678e4a77-9779-4ce7-b3ed-625650079adf-2e33e961ba6a9be8c559fb311edfeac4.jpg))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\generalImages\1d090056-0d50-4e00-9b18-120d9de86905-0c662a201941d4a424d2ea1411810911.jpg))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\generalImages\b22799da-9a27-4b48-acb4-f8aa4528a4e9-2e33e961ba6a9be8c559fb311edfeac4.jpg))">
       <SourceType>Package</SourceType>
       <SourceId>MangaWeb.Api</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
       <BasePath>_content/MangaWeb.Api</BasePath>
-      <RelativePath>generalImages/1d090056-0d50-4e00-9b18-120d9de86905-0c662a201941d4a424d2ea1411810911.jpg</RelativePath>
+      <RelativePath>generalImages/b22799da-9a27-4b48-acb4-f8aa4528a4e9-2e33e961ba6a9be8c559fb311edfeac4.jpg</RelativePath>
       <AssetKind>All</AssetKind>
       <AssetMode>All</AssetMode>
       <AssetRole>Primary</AssetRole>
@@ -46,14 +46,14 @@
       <AssetTraitValue></AssetTraitValue>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\generalImages\1d090056-0d50-4e00-9b18-120d9de86905-0c662a201941d4a424d2ea1411810911.jpg))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\generalImages\b22799da-9a27-4b48-acb4-f8aa4528a4e9-2e33e961ba6a9be8c559fb311edfeac4.jpg))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\generalImages\1f0c0f04-5020-47b1-ad94-9bf3dd717a12-0c662a201941d4a424d2ea1411810911.jpg))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\generalImages\d099e9af-3011-468f-a97f-d1427e8bb855-0c662a201941d4a424d2ea1411810911.jpg))">
       <SourceType>Package</SourceType>
       <SourceId>MangaWeb.Api</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
       <BasePath>_content/MangaWeb.Api</BasePath>
-      <RelativePath>generalImages/1f0c0f04-5020-47b1-ad94-9bf3dd717a12-0c662a201941d4a424d2ea1411810911.jpg</RelativePath>
+      <RelativePath>generalImages/d099e9af-3011-468f-a97f-d1427e8bb855-0c662a201941d4a424d2ea1411810911.jpg</RelativePath>
       <AssetKind>All</AssetKind>
       <AssetMode>All</AssetMode>
       <AssetRole>Primary</AssetRole>
@@ -62,215 +62,7 @@
       <AssetTraitValue></AssetTraitValue>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\generalImages\1f0c0f04-5020-47b1-ad94-9bf3dd717a12-0c662a201941d4a424d2ea1411810911.jpg))</OriginalItemSpec>
-    </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\generalImages\2d7d7455-73eb-4ce6-8063-69069b7efdc7-2e33e961ba6a9be8c559fb311edfeac4.jpg))">
-      <SourceType>Package</SourceType>
-      <SourceId>MangaWeb.Api</SourceId>
-      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
-      <BasePath>_content/MangaWeb.Api</BasePath>
-      <RelativePath>generalImages/2d7d7455-73eb-4ce6-8063-69069b7efdc7-2e33e961ba6a9be8c559fb311edfeac4.jpg</RelativePath>
-      <AssetKind>All</AssetKind>
-      <AssetMode>All</AssetMode>
-      <AssetRole>Primary</AssetRole>
-      <RelatedAsset></RelatedAsset>
-      <AssetTraitName></AssetTraitName>
-      <AssetTraitValue></AssetTraitValue>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\generalImages\2d7d7455-73eb-4ce6-8063-69069b7efdc7-2e33e961ba6a9be8c559fb311edfeac4.jpg))</OriginalItemSpec>
-    </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\generalImages\3c58ae81-aec5-4b7b-9287-ac9b9edb21b5-0c662a201941d4a424d2ea1411810911.jpg))">
-      <SourceType>Package</SourceType>
-      <SourceId>MangaWeb.Api</SourceId>
-      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
-      <BasePath>_content/MangaWeb.Api</BasePath>
-      <RelativePath>generalImages/3c58ae81-aec5-4b7b-9287-ac9b9edb21b5-0c662a201941d4a424d2ea1411810911.jpg</RelativePath>
-      <AssetKind>All</AssetKind>
-      <AssetMode>All</AssetMode>
-      <AssetRole>Primary</AssetRole>
-      <RelatedAsset></RelatedAsset>
-      <AssetTraitName></AssetTraitName>
-      <AssetTraitValue></AssetTraitValue>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\generalImages\3c58ae81-aec5-4b7b-9287-ac9b9edb21b5-0c662a201941d4a424d2ea1411810911.jpg))</OriginalItemSpec>
-    </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\generalImages\47f6672b-9480-4147-879a-493e0f7b43c5-0c662a201941d4a424d2ea1411810911.jpg))">
-      <SourceType>Package</SourceType>
-      <SourceId>MangaWeb.Api</SourceId>
-      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
-      <BasePath>_content/MangaWeb.Api</BasePath>
-      <RelativePath>generalImages/47f6672b-9480-4147-879a-493e0f7b43c5-0c662a201941d4a424d2ea1411810911.jpg</RelativePath>
-      <AssetKind>All</AssetKind>
-      <AssetMode>All</AssetMode>
-      <AssetRole>Primary</AssetRole>
-      <RelatedAsset></RelatedAsset>
-      <AssetTraitName></AssetTraitName>
-      <AssetTraitValue></AssetTraitValue>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\generalImages\47f6672b-9480-4147-879a-493e0f7b43c5-0c662a201941d4a424d2ea1411810911.jpg))</OriginalItemSpec>
-    </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\generalImages\49119191-13ae-44f4-b4ae-61e4f724c425-0c662a201941d4a424d2ea1411810911.jpg))">
-      <SourceType>Package</SourceType>
-      <SourceId>MangaWeb.Api</SourceId>
-      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
-      <BasePath>_content/MangaWeb.Api</BasePath>
-      <RelativePath>generalImages/49119191-13ae-44f4-b4ae-61e4f724c425-0c662a201941d4a424d2ea1411810911.jpg</RelativePath>
-      <AssetKind>All</AssetKind>
-      <AssetMode>All</AssetMode>
-      <AssetRole>Primary</AssetRole>
-      <RelatedAsset></RelatedAsset>
-      <AssetTraitName></AssetTraitName>
-      <AssetTraitValue></AssetTraitValue>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\generalImages\49119191-13ae-44f4-b4ae-61e4f724c425-0c662a201941d4a424d2ea1411810911.jpg))</OriginalItemSpec>
-    </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\generalImages\545df560-0c1b-41c9-96d4-629082f776d9-0c662a201941d4a424d2ea1411810911.jpg))">
-      <SourceType>Package</SourceType>
-      <SourceId>MangaWeb.Api</SourceId>
-      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
-      <BasePath>_content/MangaWeb.Api</BasePath>
-      <RelativePath>generalImages/545df560-0c1b-41c9-96d4-629082f776d9-0c662a201941d4a424d2ea1411810911.jpg</RelativePath>
-      <AssetKind>All</AssetKind>
-      <AssetMode>All</AssetMode>
-      <AssetRole>Primary</AssetRole>
-      <RelatedAsset></RelatedAsset>
-      <AssetTraitName></AssetTraitName>
-      <AssetTraitValue></AssetTraitValue>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\generalImages\545df560-0c1b-41c9-96d4-629082f776d9-0c662a201941d4a424d2ea1411810911.jpg))</OriginalItemSpec>
-    </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\generalImages\5976dac4-1078-4f6b-9d0c-a44aa6afa1d9-0c662a201941d4a424d2ea1411810911.jpg))">
-      <SourceType>Package</SourceType>
-      <SourceId>MangaWeb.Api</SourceId>
-      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
-      <BasePath>_content/MangaWeb.Api</BasePath>
-      <RelativePath>generalImages/5976dac4-1078-4f6b-9d0c-a44aa6afa1d9-0c662a201941d4a424d2ea1411810911.jpg</RelativePath>
-      <AssetKind>All</AssetKind>
-      <AssetMode>All</AssetMode>
-      <AssetRole>Primary</AssetRole>
-      <RelatedAsset></RelatedAsset>
-      <AssetTraitName></AssetTraitName>
-      <AssetTraitValue></AssetTraitValue>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\generalImages\5976dac4-1078-4f6b-9d0c-a44aa6afa1d9-0c662a201941d4a424d2ea1411810911.jpg))</OriginalItemSpec>
-    </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\generalImages\875434e0-1d12-4731-95e2-7886b7e45f65-0c662a201941d4a424d2ea1411810911.jpg))">
-      <SourceType>Package</SourceType>
-      <SourceId>MangaWeb.Api</SourceId>
-      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
-      <BasePath>_content/MangaWeb.Api</BasePath>
-      <RelativePath>generalImages/875434e0-1d12-4731-95e2-7886b7e45f65-0c662a201941d4a424d2ea1411810911.jpg</RelativePath>
-      <AssetKind>All</AssetKind>
-      <AssetMode>All</AssetMode>
-      <AssetRole>Primary</AssetRole>
-      <RelatedAsset></RelatedAsset>
-      <AssetTraitName></AssetTraitName>
-      <AssetTraitValue></AssetTraitValue>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\generalImages\875434e0-1d12-4731-95e2-7886b7e45f65-0c662a201941d4a424d2ea1411810911.jpg))</OriginalItemSpec>
-    </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\generalImages\b5817451-231f-4720-a92e-25477779152b-0c662a201941d4a424d2ea1411810911.jpg))">
-      <SourceType>Package</SourceType>
-      <SourceId>MangaWeb.Api</SourceId>
-      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
-      <BasePath>_content/MangaWeb.Api</BasePath>
-      <RelativePath>generalImages/b5817451-231f-4720-a92e-25477779152b-0c662a201941d4a424d2ea1411810911.jpg</RelativePath>
-      <AssetKind>All</AssetKind>
-      <AssetMode>All</AssetMode>
-      <AssetRole>Primary</AssetRole>
-      <RelatedAsset></RelatedAsset>
-      <AssetTraitName></AssetTraitName>
-      <AssetTraitValue></AssetTraitValue>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\generalImages\b5817451-231f-4720-a92e-25477779152b-0c662a201941d4a424d2ea1411810911.jpg))</OriginalItemSpec>
-    </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\generalImages\c22042d1-d5c8-4215-861c-552d53ef65c3-2e33e961ba6a9be8c559fb311edfeac4.jpg))">
-      <SourceType>Package</SourceType>
-      <SourceId>MangaWeb.Api</SourceId>
-      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
-      <BasePath>_content/MangaWeb.Api</BasePath>
-      <RelativePath>generalImages/c22042d1-d5c8-4215-861c-552d53ef65c3-2e33e961ba6a9be8c559fb311edfeac4.jpg</RelativePath>
-      <AssetKind>All</AssetKind>
-      <AssetMode>All</AssetMode>
-      <AssetRole>Primary</AssetRole>
-      <RelatedAsset></RelatedAsset>
-      <AssetTraitName></AssetTraitName>
-      <AssetTraitValue></AssetTraitValue>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\generalImages\c22042d1-d5c8-4215-861c-552d53ef65c3-2e33e961ba6a9be8c559fb311edfeac4.jpg))</OriginalItemSpec>
-    </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\generalImages\e636915a-a85f-4198-a782-3e2aeb08981a-0c662a201941d4a424d2ea1411810911.jpg))">
-      <SourceType>Package</SourceType>
-      <SourceId>MangaWeb.Api</SourceId>
-      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
-      <BasePath>_content/MangaWeb.Api</BasePath>
-      <RelativePath>generalImages/e636915a-a85f-4198-a782-3e2aeb08981a-0c662a201941d4a424d2ea1411810911.jpg</RelativePath>
-      <AssetKind>All</AssetKind>
-      <AssetMode>All</AssetMode>
-      <AssetRole>Primary</AssetRole>
-      <RelatedAsset></RelatedAsset>
-      <AssetTraitName></AssetTraitName>
-      <AssetTraitValue></AssetTraitValue>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\generalImages\e636915a-a85f-4198-a782-3e2aeb08981a-0c662a201941d4a424d2ea1411810911.jpg))</OriginalItemSpec>
-    </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\generalImages\f324d21f-94ce-4dae-8119-397abc85746b-0ca9593a8bcef01398b845fbb72e7f19.jpg))">
-      <SourceType>Package</SourceType>
-      <SourceId>MangaWeb.Api</SourceId>
-      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
-      <BasePath>_content/MangaWeb.Api</BasePath>
-      <RelativePath>generalImages/f324d21f-94ce-4dae-8119-397abc85746b-0ca9593a8bcef01398b845fbb72e7f19.jpg</RelativePath>
-      <AssetKind>All</AssetKind>
-      <AssetMode>All</AssetMode>
-      <AssetRole>Primary</AssetRole>
-      <RelatedAsset></RelatedAsset>
-      <AssetTraitName></AssetTraitName>
-      <AssetTraitValue></AssetTraitValue>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\generalImages\f324d21f-94ce-4dae-8119-397abc85746b-0ca9593a8bcef01398b845fbb72e7f19.jpg))</OriginalItemSpec>
-    </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\generalImages\f9e6819e-4b40-4e9a-802b-9ee0b78f77b0-0c662a201941d4a424d2ea1411810911.jpg))">
-      <SourceType>Package</SourceType>
-      <SourceId>MangaWeb.Api</SourceId>
-      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
-      <BasePath>_content/MangaWeb.Api</BasePath>
-      <RelativePath>generalImages/f9e6819e-4b40-4e9a-802b-9ee0b78f77b0-0c662a201941d4a424d2ea1411810911.jpg</RelativePath>
-      <AssetKind>All</AssetKind>
-      <AssetMode>All</AssetMode>
-      <AssetRole>Primary</AssetRole>
-      <RelatedAsset></RelatedAsset>
-      <AssetTraitName></AssetTraitName>
-      <AssetTraitValue></AssetTraitValue>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\generalImages\f9e6819e-4b40-4e9a-802b-9ee0b78f77b0-0c662a201941d4a424d2ea1411810911.jpg))</OriginalItemSpec>
-    </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\generalImages\fde7ea71-9998-4d9b-bafc-76a2ce6385b2-2e33e961ba6a9be8c559fb311edfeac4.jpg))">
-      <SourceType>Package</SourceType>
-      <SourceId>MangaWeb.Api</SourceId>
-      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
-      <BasePath>_content/MangaWeb.Api</BasePath>
-      <RelativePath>generalImages/fde7ea71-9998-4d9b-bafc-76a2ce6385b2-2e33e961ba6a9be8c559fb311edfeac4.jpg</RelativePath>
-      <AssetKind>All</AssetKind>
-      <AssetMode>All</AssetMode>
-      <AssetRole>Primary</AssetRole>
-      <RelatedAsset></RelatedAsset>
-      <AssetTraitName></AssetTraitName>
-      <AssetTraitValue></AssetTraitValue>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\generalImages\fde7ea71-9998-4d9b-bafc-76a2ce6385b2-2e33e961ba6a9be8c559fb311edfeac4.jpg))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\generalImages\d099e9af-3011-468f-a97f-d1427e8bb855-0c662a201941d4a424d2ea1411810911.jpg))</OriginalItemSpec>
     </StaticWebAsset>
   </ItemGroup>
 </Project>

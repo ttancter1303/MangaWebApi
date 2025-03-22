@@ -1,4 +1,4 @@
-using MangaWeb.Domain.Abstractions.ApplicationServices;
+﻿using MangaWeb.Domain.Abstractions.ApplicationServices;
 using MangaWeb.Domain.Abstractions.InfrastructureServices;
 using MangaWeb.Domain.Abstractions;
 using MangaWeb.Domain.Entities;
@@ -67,7 +67,10 @@ namespace MangaWeb.Application.Services
 
             var uploadTask = model.Images.Select(s => _fileService.UploadFile(s, _imageFolder)).ToList();
             var uploadImages = await Task.WhenAll(uploadTask);
-
+            foreach (var image in uploadImages)
+            {
+                _logger.LogInformation($"Uploaded file: {image.FilePath}");
+            }
             if (uploadImages.Any())
             {
                 var items = uploadImages.Select(s => new GeneralImage()
@@ -81,13 +84,13 @@ namespace MangaWeb.Application.Services
                 {
                     _imageRepository.AddRange(items);
                     await _unitOfWork.SaveChangesAsync();
-                    return ResponseResult.Success("Upload image successfully");
                 }
                 catch (Exception e)
                 {
-
+                    _logger.LogError($"Database Error: {e.Message}");
                     throw new ImageException.UploadImageException();
                 }
+
             }
             throw new ImageException.UploadImageException();
         }

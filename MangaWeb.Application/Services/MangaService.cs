@@ -5,6 +5,8 @@ using MangaWeb.Domain.Entities;
 using MangaWeb.Domain.Enums;
 using MangaWeb.Domain.Exceptions;
 using MangaWeb.Domain.Models.Mangas;
+using MangaWeb.Domain.Models.Users;
+using Microsoft.EntityFrameworkCore;
 
 
 namespace MangaWeb.Application.Services
@@ -13,6 +15,7 @@ namespace MangaWeb.Application.Services
     {
         private readonly IMangaRepository _mangaRepository;
         private readonly IUnitOfWork _unitOfWork;
+        private readonly IGenericRepository<GeneralImage, Guid> _generalImageRepository;
         private readonly IMapper _mapper;
 
         public MangaService(IMangaRepository mangaRepository, IUnitOfWork unitOfWork, IMapper mapper)
@@ -38,18 +41,36 @@ namespace MangaWeb.Application.Services
             return _mapper.Map<MangaDetailViewModel>(manga);
         }
 
-        public async Task<Guid> CreateMangaAsync(MangaCreateViewModel model)
+        public async Task<Guid> CreateMangaAsync(MangaCreateViewModel model, UserProfileModel currentUser)
         {
-            var manga = _mapper.Map<Manga>(model);
-            manga.Id = Guid.NewGuid();
-            manga.CreatedDate = DateTime.UtcNow;
-            manga.Status = EntityStatus.Active;
+            await _unitOfWork.BeginTransactionAsync();
+            try
+            {
+                // Lấy ảnh đầu tiên từ danh sách ImageIds để làm ảnh bìa
+                var coverImage = await _generalImageRepository.FindAll(s => model.TagIds.Contains(s.Id))
+                    .Select(s => new { s.Id, s.Url })
+                    .FirstOrDefaultAsync();
 
-            await _mangaRepository.AddAsync(manga);
-            await _unitOfWork.SaveChangesAsync();
+                var manga = _mapper.Map<Manga>(model);
+                manga.Id = Guid.NewGuid();
+                manga.CreatedDate = DateTime.UtcNow;
+                manga.Status = EntityStatus.Active;
+                manga.CreatedBy = currentUser.UserId;
+                manga.CoverImageUrl = coverImage?.Url; // Lưu URL ảnh bìa nếu có
 
-            return manga.Id;
+                await _mangaRepository.AddAsync(manga);
+                await _unitOfWork.SaveChangesAsync();
+                await _unitOfWork.CommitAsync();
+
+                return manga.Id;
+            }
+            catch (Exception e)
+            {
+                await _unitOfWork.RollbackAsync();
+                throw new MangaException.CreateMangaException(model.Title);
+            }
         }
+
 
         public async Task UpdateMangaAsync(MangaUpdateViewModel model)
         {
@@ -84,5 +105,9 @@ namespace MangaWeb.Application.Services
             return _mapper.Map<IEnumerable<MangaViewModel>>(mangas);
         }
 
+        public Task<Guid> CreateMangaAsync(MangaCreateViewModel model)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -14,6 +14,9 @@ public class ApplicationDbContext : IdentityDbContext<AppUser, AppRole, Guid>
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);
+
+        // Đảm bảo bảng có đúng tên trong database
+        modelBuilder.Entity<GeneralImage>().ToTable("GeneralImages");
     }
 
     // Các DbSet cho các entity
@@ -28,4 +31,7 @@ public class ApplicationDbContext : IdentityDbContext<AppUser, AppRole, Guid>
     public DbSet<AppRole> AppRoles { get; set; }
     public DbSet<Permission> Permissions { get; set; }
     public DbSet<RolePermission> RolePermissions { get; set; }
+
+    // Thêm GeneralImages vào DbSet
+    public DbSet<GeneralImage> GeneralImages { get; set; }
 }
