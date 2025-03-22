@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "sW15mroxpCz/pGwmaDjZLxSPeRotmmja9n4MBeIDRRc=",
+  "Hash": "S6wZ0RiibyXVRW+yxlnIw7yBjB+XsUc4Z92ofCjJZnA=",
   "Source": "MangaWeb.Api",
   "BasePath": "_content/MangaWeb.Api",
   "Mode": "Default",
@@ -17,12 +17,12 @@
   ],
   "Assets": [
     {
-      "Identity": "E:\\CeeSharp\\MangaWebApi\\MangaWeb\\wwwroot\\generalImages\\35ff7ae0-9c47-4c41-9042-a23aa75f4445-0c662a201941d4a424d2ea1411810911.jpg",
+      "Identity": "E:\\CeeSharp\\MangaWebApi\\MangaWeb\\wwwroot\\generalImages\\fda3b85f-6fed-4435-8cac-b67452170a7f-0ca9593a8bcef01398b845fbb72e7f19.jpg",
       "SourceId": "MangaWeb.Api",
       "SourceType": "Discovered",
       "ContentRoot": "E:\\CeeSharp\\MangaWebApi\\MangaWeb\\wwwroot\\",
       "BasePath": "_content/MangaWeb.Api",
-      "RelativePath": "generalImages/35ff7ae0-9c47-4c41-9042-a23aa75f4445-0c662a201941d4a424d2ea1411810911.jpg",
+      "RelativePath": "generalImages/fda3b85f-6fed-4435-8cac-b67452170a7f-0ca9593a8bcef01398b845fbb72e7f19.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -33,15 +33,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\generalImages\\35ff7ae0-9c47-4c41-9042-a23aa75f4445-0c662a201941d4a424d2ea1411810911.jpg"
+      "OriginalItemSpec": "wwwroot\\generalImages\\fda3b85f-6fed-4435-8cac-b67452170a7f-0ca9593a8bcef01398b845fbb72e7f19.jpg"
     },
     {
-      "Identity": "E:\\CeeSharp\\MangaWebApi\\MangaWeb\\wwwroot\\generalImages\\678e4a77-9779-4ce7-b3ed-625650079adf-2e33e961ba6a9be8c559fb311edfeac4.jpg",
+      "Identity": "E:\\CeeSharp\\MangaWebApi\\MangaWeb\\wwwroot\\generalImages\\fe784bdb-0f4b-4815-b6c6-10ff6a31fabb-0ca9593a8bcef01398b845fbb72e7f19.jpg",
       "SourceId": "MangaWeb.Api",
       "SourceType": "Discovered",
       "ContentRoot": "E:\\CeeSharp\\MangaWebApi\\MangaWeb\\wwwroot\\",
       "BasePath": "_content/MangaWeb.Api",
-      "RelativePath": "generalImages/678e4a77-9779-4ce7-b3ed-625650079adf-2e33e961ba6a9be8c559fb311edfeac4.jpg",
+      "RelativePath": "generalImages/fe784bdb-0f4b-4815-b6c6-10ff6a31fabb-0ca9593a8bcef01398b845fbb72e7f19.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -52,15 +52,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\generalImages\\678e4a77-9779-4ce7-b3ed-625650079adf-2e33e961ba6a9be8c559fb311edfeac4.jpg"
+      "OriginalItemSpec": "wwwroot\\generalImages\\fe784bdb-0f4b-4815-b6c6-10ff6a31fabb-0ca9593a8bcef01398b845fbb72e7f19.jpg"
     },
     {
-      "Identity": "E:\\CeeSharp\\MangaWebApi\\MangaWeb\\wwwroot\\generalImages\\b22799da-9a27-4b48-acb4-f8aa4528a4e9-2e33e961ba6a9be8c559fb311edfeac4.jpg",
+      "Identity": "E:\\CeeSharp\\MangaWebApi\\MangaWeb\\wwwroot\\generalImages\\ff66b75f-1854-4839-808c-dbfdf3c8f8cc-0ca9593a8bcef01398b845fbb72e7f19.jpg",
       "SourceId": "MangaWeb.Api",
       "SourceType": "Discovered",
       "ContentRoot": "E:\\CeeSharp\\MangaWebApi\\MangaWeb\\wwwroot\\",
       "BasePath": "_content/MangaWeb.Api",
-      "RelativePath": "generalImages/b22799da-9a27-4b48-acb4-f8aa4528a4e9-2e33e961ba6a9be8c559fb311edfeac4.jpg",
+      "RelativePath": "generalImages/ff66b75f-1854-4839-808c-dbfdf3c8f8cc-0ca9593a8bcef01398b845fbb72e7f19.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -71,26 +71,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\generalImages\\b22799da-9a27-4b48-acb4-f8aa4528a4e9-2e33e961ba6a9be8c559fb311edfeac4.jpg"
-    },
-    {
-      "Identity": "E:\\CeeSharp\\MangaWebApi\\MangaWeb\\wwwroot\\generalImages\\d099e9af-3011-468f-a97f-d1427e8bb855-0c662a201941d4a424d2ea1411810911.jpg",
-      "SourceId": "MangaWeb.Api",
-      "SourceType": "Discovered",
-      "ContentRoot": "E:\\CeeSharp\\MangaWebApi\\MangaWeb\\wwwroot\\",
-      "BasePath": "_content/MangaWeb.Api",
-      "RelativePath": "generalImages/d099e9af-3011-468f-a97f-d1427e8bb855-0c662a201941d4a424d2ea1411810911.jpg",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\generalImages\\d099e9af-3011-468f-a97f-d1427e8bb855-0c662a201941d4a424d2ea1411810911.jpg"
+      "OriginalItemSpec": "wwwroot\\generalImages\\ff66b75f-1854-4839-808c-dbfdf3c8f8cc-0ca9593a8bcef01398b845fbb72e7f19.jpg"
     }
   ]
 }

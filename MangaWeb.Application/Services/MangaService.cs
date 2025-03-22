@@ -40,23 +40,17 @@ namespace MangaWeb.Application.Services
             }
             return _mapper.Map<MangaDetailViewModel>(manga);
         }
-
-        public async Task<Guid> CreateMangaAsync(MangaCreateViewModel model, UserProfileModel currentUser)
+        public async Task<Guid> CreateMangaAsync(MangaCreateViewModel model)
         {
             await _unitOfWork.BeginTransactionAsync();
             try
             {
-                // Lấy ảnh đầu tiên từ danh sách ImageIds để làm ảnh bìa
-                var coverImage = await _generalImageRepository.FindAll(s => model.TagIds.Contains(s.Id))
-                    .Select(s => new { s.Id, s.Url })
-                    .FirstOrDefaultAsync();
-
                 var manga = _mapper.Map<Manga>(model);
                 manga.Id = Guid.NewGuid();
                 manga.CreatedDate = DateTime.UtcNow;
                 manga.Status = EntityStatus.Active;
-                manga.CreatedBy = currentUser.UserId;
-                manga.CoverImageUrl = coverImage?.Url; // Lưu URL ảnh bìa nếu có
+
+                manga.CoverImageUrl = model.CoverImageUrl;
 
                 await _mangaRepository.AddAsync(manga);
                 await _unitOfWork.SaveChangesAsync();
@@ -70,6 +64,7 @@ namespace MangaWeb.Application.Services
                 throw new MangaException.CreateMangaException(model.Title);
             }
         }
+
 
 
         public async Task UpdateMangaAsync(MangaUpdateViewModel model)
@@ -105,9 +100,6 @@ namespace MangaWeb.Application.Services
             return _mapper.Map<IEnumerable<MangaViewModel>>(mangas);
         }
 
-        public Task<Guid> CreateMangaAsync(MangaCreateViewModel model)
-        {
-            throw new NotImplementedException();
-        }
+
     }
 }

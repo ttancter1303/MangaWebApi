@@ -53,22 +53,6 @@ app.UseAuthorization();
 
 app.MapControllers();
 InitDatabase(app);
-app.Use(async (context, next) =>
-{
-    if (context.Items.ContainsKey("Token") && context.Items["Token"] is string token)
-    {
-        Console.WriteLine($" Gắn Bearer Token vào request: {token}");
-        context.Request.Headers["Authorization"] = $"Bearer {token}";
-    }
-    else
-    {
-        Console.WriteLine(" Không tìm thấy Token trong HttpContext.Items");
-    }
-
-    await next();
-});
-
-
 app.Run();
 
 void InitDatabase(IApplicationBuilder app)

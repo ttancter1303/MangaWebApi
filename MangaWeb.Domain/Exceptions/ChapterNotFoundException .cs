@@ -4,7 +4,7 @@ namespace MangaWeb.Domain.Exceptions;
 
 public class ChapterNotFoundException : BaseException
 {
-    public ChapterNotFoundException(int chapterId)
+    public ChapterNotFoundException(Guid chapterId)  
         : base(
             title: "Chapter Not Found",
             message: $"Chapter with ID {chapterId} was not found."

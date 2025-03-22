@@ -15,8 +15,15 @@ public class ApplicationDbContext : IdentityDbContext<AppUser, AppRole, Guid>
     {
         base.OnModelCreating(modelBuilder);
 
-        // Đảm bảo bảng có đúng tên trong database
         modelBuilder.Entity<GeneralImage>().ToTable("GeneralImages");
+        modelBuilder.Entity<Chapter>()
+            .Property(c => c.ImagePaths)
+            .HasConversion(
+                v => string.Join(";", v), // Chuyển List<string> thành chuỗi JSON
+                v => v.Split(";", StringSplitOptions.RemoveEmptyEntries).ToList() // Chuyển chuỗi JSON thành List<string>
+            );
+
+                base.OnModelCreating(modelBuilder);
     }
 
     // Các DbSet cho các entity

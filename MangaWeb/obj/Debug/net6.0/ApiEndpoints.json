@@ -104,7 +104,7 @@
     "Parameters": [
       {
         "Name": "model",
-        "Type": "MangaWeb.Domain.Models.Chapters.CreateChapterRequest",
+        "Type": "MangaWeb.Domain.Models.Chapters.ChapterCreateViewModel",
         "IsRequired": true
       }
     ],
@@ -141,7 +141,7 @@
       },
       {
         "Name": "model",
-        "Type": "MangaWeb.Domain.Models.Chapters.UpdateChapterRequest",
+        "Type": "MangaWeb.Domain.Models.Chapters.ChapterUpdateViewModel",
         "IsRequired": true
       }
     ],
@@ -157,6 +157,22 @@
     "Parameters": [
       {
         "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MangaWeb.Api.Controllers.Management.AdminChaptersController",
+    "Method": "GetChaptersByMangaId",
+    "RelativePath": "api/admin/chapters/manga/{mangaId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "mangaId",
         "Type": "System.Guid",
         "IsRequired": true
       }
@@ -325,16 +341,6 @@
         "IsRequired": false
       }
     ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "MangaWeb.Api.Controllers.Public.PublicUsersController",
-    "Method": "DebugToken",
-    "RelativePath": "api/public/users/debug-token",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
     "ReturnTypes": []
   },
   {

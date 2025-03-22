@@ -3,6 +3,7 @@ using MangaWeb.Domain.Enums;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Threading.Tasks;
+using MangaWeb.Persistence; // Thêm namespace này
 
 namespace MangaWeb.Application.Services
 {
@@ -13,11 +14,11 @@ namespace MangaWeb.Application.Services
 
     public class MangaViewService : IMangaViewService
     {
-        private readonly DbContext _context;
+        private readonly ApplicationDbContext _context;
 
-        public MangaViewService(DbContext context)
+        public MangaViewService(ApplicationDbContext context)
         {
-            _context = context;
+            _context = context ?? throw new ArgumentNullException(nameof(context));
         }
 
         public async Task RecordMangaViewAsync(Guid mangaId)
@@ -31,7 +32,7 @@ namespace MangaWeb.Application.Services
                 Status = EntityStatus.Active
             };
 
-            await _context.Set<MangaView>().AddAsync(mangaView);
+            await _context.MangaViews.AddAsync(mangaView);
             await _context.SaveChangesAsync();
         }
     }

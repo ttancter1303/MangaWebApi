@@ -32,14 +32,6 @@ namespace MangaWeb.Api.Controllers.Public
             var result = await _userService.RegisterUser(model);
             return result;
         }
-        [HttpGet("debug-token")]
-        public IActionResult DebugToken()
-        {
-            var token = Request.Headers["Authorization"].ToString();
-            var claims = User.Claims.Select(c => new { c.Type, c.Value }).ToList();
-
-            return Ok(new { token, claims });
-        }
 
     }
 }

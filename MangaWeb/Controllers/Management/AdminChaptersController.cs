@@ -19,16 +19,17 @@ namespace MangaWeb.Api.Controllers.Management
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateChapter([FromBody] CreateChapterRequest model)
+        public async Task<IActionResult> CreateChapter([FromBody] ChapterCreateViewModel model)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            var chapterId = await _chapterService.CreateChapterAsync(model);
-            return CreatedAtAction(nameof(GetChapterById), new { id = chapterId }, model);
+            var createdChapter = await _chapterService.CreateChapterAsync(model);
+            return CreatedAtAction(nameof(GetChapterById), new { id = createdChapter.Id }, createdChapter);
         }
+
         [HttpGet("{id}")]
         public async Task<IActionResult> GetChapterById(Guid id)
         {
@@ -39,10 +40,23 @@ namespace MangaWeb.Api.Controllers.Management
             }
             return Ok(chapter);
         }
-        [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateChapter(Guid id, [FromBody] UpdateChapterRequest model)
+
+        [HttpGet("manga/{mangaId}")]
+        public async Task<IActionResult> GetChaptersByMangaId(Guid mangaId)
         {
-            if (!ModelState.IsValid || id != model.Id)
+            var chapters = await _chapterService.GetChaptersByMangaIdAsync(mangaId);
+            return Ok(chapters);
+        }
+
+        [HttpPut("{id}")]
+        public async Task<IActionResult> UpdateChapter(Guid id, [FromBody] ChapterUpdateViewModel model)
+        {
+            if (id != model.Id)
+            {
+                return BadRequest("Chapter ID mismatch");
+            }
+
+            if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }

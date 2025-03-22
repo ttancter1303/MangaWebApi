@@ -82,6 +82,10 @@ namespace MangaWeb.Application.Services
                 }).ToList();
                 try
                 {
+                    if (items == null || !items.Any())
+                    {
+                        _logger.LogWarning("No images to add.");
+                    }
                     _imageRepository.AddRange(items);
                     await _unitOfWork.SaveChangesAsync();
                 }

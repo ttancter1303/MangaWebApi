@@ -14,7 +14,7 @@ namespace MangaWeb.Domain.Abstractions.ApplicationServices
         Task<ResponseResult> ChangePassword(ChangePasswordViewModel model, UserProfileModel currentUser);
         #endregion
 
-        #region Customers
+        #region User
         Task<ResponseResult> RegisterUser(RegisterUserViewModel model);
         #endregion
 

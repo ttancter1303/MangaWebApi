@@ -9,12 +9,13 @@ namespace MangaWeb.Domain.Models.Chapters
         public string Title { get; set; }
         public int ChapterNumber { get; set; }
         public Guid MangaId { get; set; }
-        public string[] Images { get; set; }
+        public string MangaTitle { get; set; } 
+        public List<string> Images { get; set; } 
         public int PageCount { get; set; }
-        public string StorageLocation { get; set; }
-        public long TotalSize { get; set; }
         public DateTime? CreatedDate { get; set; }
         public Guid? CreatedBy { get; set; }
+        public Guid? UpdatedBy { get; set; }
+        public DateTime? UpdatedDate { get; set; }
         public EntityStatus Status { get; set; }
     }
 }
