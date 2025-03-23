@@ -207,6 +207,7 @@ namespace MangaWeb.Application.Services
             var result = await _userManager.CreateAsync(user, model.Password);
             if (result.Succeeded)
             {
+
                 return ResponseResult.Success();
             }
             else
@@ -229,12 +230,18 @@ namespace MangaWeb.Application.Services
                 UserName = model.UserName,
                 Email = model.Email,
                 PhoneNumber = model.PhoneNummber,
-                IsSystemUser = true
+                IsSystemUser = true,
             };
 
             var result = await _userManager.CreateAsync(user, model.Password);
             if (result.Succeeded)
             {
+                var roleAssignResult = await _userManager.AddToRoleAsync(user, "admin");
+                if (!roleAssignResult.Succeeded)
+                {
+                    var roleErrors = JsonConvert.SerializeObject(roleAssignResult.Errors);
+                    throw new UserException.HandleUserException($"Không thể gán role Admin: {roleErrors}");
+                }
                 return ResponseResult.Success();
             }
             else
